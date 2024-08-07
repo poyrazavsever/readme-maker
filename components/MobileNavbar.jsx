@@ -2,7 +2,9 @@ import React from 'react'
 
 function MobileNavbar() {
   return (
-    <div>MobileNavbar</div>
+    <div className='hidden mobile:block'>
+      a
+    </div>
   )
 }
 
