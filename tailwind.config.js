@@ -15,6 +15,19 @@ module.exports = {
         "mobile" : {"max" : "623px", "min" : "0px"},
         "desktop" : {"min": "624px"}
       },
+      transitionProperty: {
+        'height': 'height'
+      },
+      keyframes : {
+        card: {
+          '0%' : {opacity:0},
+          '100%': { opacity:1 }
+        }
+      },
+
+      animation: {
+        card : 'card .3s ease-in forwards'
+      },
     },
   },
   plugins: [],
