@@ -32,7 +32,7 @@ function MobileNavbar() {
       </div>
 
       {open === true &&
-        <div className='absolute h-screen w-full top-0 left-0 backdrop-blur-md z-50 overflow-hidden p-8'>
+        <div className='absolute h-screen w-full top-0 left-0 backdrop-blur-md z-50 overflow-hidden p-8 animate-card'>
 
           <div className='w-full flex items-center justify-between border-b pb-4'>
 
