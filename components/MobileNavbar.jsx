@@ -1,9 +1,75 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { IoMdMenu } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+import { FaStar } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaMoon } from "react-icons/fa";
 
 function MobileNavbar() {
+
+  const linkStyle = "text-zinc-800 uppercase text-2xl font-bold tracking-widest before:content-[''] before:absolute before:w-full before:h-[1px] before:rounded-md before:bg-neutral-600 before:-bottom-1 before:left-0 before:origin-right before:scale-x-0 before:transition-all before:ease-in-out before:duration-300 hover:before:origin-left hover:before:scale-x-100 relative hover:text-neutral-600 transition-all"
+
+  const linkStylebot = "flex items-center gap-4 text-zinc-800 text-lg font-medium tracking-widest before:content-[''] before:absolute before:w-full before:h-[1px] before:rounded-md before:bg-neutral-600 before:-bottom-1 before:left-0 before:origin-right before:scale-x-0 before:transition-all before:ease-in-out before:duration-300 hover:before:origin-left hover:before:scale-x-100 relative"
+
+  const [open, setOpen] = useState(false)
+
+
   return (
-    <div className='hidden mobile:block'>
-      a
+    <div className='hidden mobile:block relative'>
+
+      <div className='container mx-auto flex items-center justify-between p-6'>
+        <div>
+          <img src="/logo/logo.svg" className='w-8' />
+        </div>
+
+        <div>
+
+          <div>
+            <button onClick={() => setOpen(!open)}><IoMdMenu className='text-3xl text-neutral-900 hover:text-neutral-500 transition-all' /></button>
+          </div>
+
+        </div>
+      </div>
+
+      {open === true &&
+        <div className='absolute h-screen w-full top-0 left-0 backdrop-blur-md z-50 overflow-hidden p-8'>
+
+          <div className='w-full flex items-center justify-between border-b pb-4'>
+
+            <img src="/logo/logo.svg" className='w-8' />
+
+            <button onClick={() => setOpen(!open)}><IoMdClose className='text-4xl text-neutral-900 hover:text-neutral-500 transition-all' /></button>
+
+          </div>
+
+          <div>
+            <ul className='mt-24 flex flex-col items-start justify-center gap-16'>
+              <li><a href="/" className={linkStyle}>-Home</a></li>
+              <li><a href="/" className={linkStyle}>-Readme Maker</a></li>
+              <li><a href="/" className={linkStyle}>-MD Editor</a></li>
+            </ul>
+
+            <div className='w-full h-[1px] bg-neutral-500 my-16'></div>
+
+            <ul className='flex flex-col items-start justify-center gap-16'>
+              <li><a href="/" className={linkStylebot}>
+                <FaStar className='text-xl' /><span>Star my Github repositories</span>
+              </a></li>
+              <li><a href="/" className={linkStylebot}>
+                <FaGithub className='text-xl' /><span>Check out my Github profile</span>
+              </a></li>
+              <li><a href="/" className={linkStylebot}>
+                <FaMoon className='text-xl' /><span>It's so bright in here!</span>
+              </a></li>
+            </ul>
+
+          </div>
+
+
+        </div>
+
+      }
+
     </div>
   )
 }

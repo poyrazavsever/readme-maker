@@ -26,7 +26,7 @@ module.exports = {
       },
 
       animation: {
-        card : 'card .3s ease-in forwards'
+        card : 'card .2s ease-in forwards'
       },
     },
   },
