@@ -60,7 +60,7 @@ function Ide() {
     };
 
     return (
-        <div className='relative h-full w-full z-20 bg-fourth'>
+        <div className='relative rounded shadow-2xl shadow-tert h-[300px] w-full z-20 bg-fourth overflow-y-scroll scrollbar scrollbar-thumb-secondary scrollbar-track-fourth'>
             <div className='p-6'>
                 <div className='w-full flex items-center justify-between'>
                     <h2 className='uppercase font-semibold tracking-widest text-primary'>Try it here</h2>
@@ -72,8 +72,7 @@ function Ide() {
                         ref={editorRef}
                         contentEditable
                         onInput={handleInput}
-                        className='w-full bg-fourth text-sm text-primary tracking-wider focus:outline-none'
-                        style={{ whiteSpace: 'pre-wrap', minHeight: '200px' }}
+                        className='w-full bg-fourth text-sm text-primary tracking-wider focus:outline-none whitespace-pre-wrap'
                     />
                 </div>
             </div>

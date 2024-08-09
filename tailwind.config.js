@@ -12,30 +12,41 @@ module.exports = {
       lg: '948px',
     },
     extend: {
-      colors:{
+      colors: {
         'primary': "#EEEEEE",
         'secondary': "#76ABAE",
         'tert': "#31363F",
         'fourth': "#222831",
       },
-      screens : {
-        "mobile" : {"max" : "623px", "min" : "0px"},
-        "desktop" : {"min": "624px"}
+      screens: {
+        "mobile": {
+          "max": "623px",
+          "min": "0px"
+        },
+        "desktop": {
+          "min": "624px"
+        }
       },
       transitionProperty: {
         'height': 'height'
       },
-      keyframes : {
+      keyframes: {
         card: {
-          '0%' : {opacity:0},
-          '100%': { opacity:1 }
+          '0%': {
+            opacity: 0
+          },
+          '100%': {
+            opacity: 1
+          }
         }
       },
 
       animation: {
-        card : 'card .2s ease-in forwards'
+        card: 'card .2s ease-in forwards'
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 };
