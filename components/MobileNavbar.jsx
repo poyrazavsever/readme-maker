@@ -15,7 +15,7 @@ function MobileNavbar() {
 
 
   return (
-    <div className='w-full hidden mobile:block relative'>
+    <div className='w-full hidden mobile:block relative !z-50'>
 
       <div className='dekstop:container dekstop:mx-auto w-full flex items-center justify-between p-6'>
         <div>
