@@ -6,12 +6,20 @@ function Ide() {
     const editorRef = useRef(null);
 
     const handleInput = () => {
-        const text = editorRef.current.innerText; // innerText ile metni alıyoruz
+        let text = editorRef.current.innerText; // innerText ile metni alıyoruz
         setCode(text);
+
+        // Code block renklendirme (üç ``` ile)
+        const codeBlockRegex = /```([\s\S]*?)```/g;
+        let coloredText = text.replace(codeBlockRegex, '<pre style="color: #e11d48; font-family: monospace;">```$1```</pre>');
+
+        // Inline code renklendirme (tek ` ile)
+        const inlineCodeRegex = /`([^`]+)`/g;
+        coloredText = coloredText.replace(inlineCodeRegex, '<span style="color: #e11d48; font-family: monospace;">`$1`</span>');
 
         // Başlıkları (#) renklendirme
         const headerRegex = /^(#{1,6})\s(.+)$/gm;
-        let coloredText = text.replace(headerRegex, '<span style="color: #f87171;">$1 $2</span>');
+        coloredText = coloredText.replace(headerRegex, '<span style="color: #f87171;">$1 $2</span>');
 
         // Yapılandırılmış listeyi (-, *, +) renklendirme
         const listRegex = /^(\*|-|\+)\s(.+)$/gm;
@@ -25,6 +33,12 @@ function Ide() {
         const italicRegex = /(\*[^*]+\*|_[^_]+_)/g;
         coloredText = coloredText.replace(italicRegex, (match) => {
             return `<span style="color: #7c3aed;">${match}</span>`;
+        });
+
+        // Bold metni renklendirme (iki * veya __ ile) - İtalik işlenmeden önce
+        const boldRegex = /(\*\*[^*]+\*\*|__[^_]+__)/g;
+        coloredText = coloredText.replace(boldRegex, (match) => {
+            return `<span style="color: #f59e0b; font-weight: bold;">${match}</span>`;
         });
 
         // İçeriği güncelleme
@@ -58,7 +72,7 @@ function Ide() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default Ide;
