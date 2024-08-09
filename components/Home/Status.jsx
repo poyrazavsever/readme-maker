@@ -6,7 +6,7 @@ import { AiOutlineProject } from "react-icons/ai";
 
 function Status() {
     return (
-        <div className='my-48 w-full p-5 desktop:p-0'>
+        <div className='mt-48 mb-24 w-full p-5 desktop:p-0'>
 
             <div className='w-full flex flex-col md:flex-row items-start md:justify-between gap-14'>
 
