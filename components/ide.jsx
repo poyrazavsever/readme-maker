@@ -27,12 +27,6 @@ function Ide() {
             return `<span style="color: #7c3aed;">${match}</span>`;
         });
 
-        // Kalın metni renklendirme (iki ** veya __ ile)
-        const boldRegex = /(\*\*[^*]+\*\*|__[^_]+__)/g;
-        coloredText = coloredText.replace(boldRegex, (match) => {
-            return `<span style="color: #fbbf24;">${match}</span>`;
-        });
-
         // İçeriği güncelleme
         editorRef.current.innerHTML = coloredText;
 
