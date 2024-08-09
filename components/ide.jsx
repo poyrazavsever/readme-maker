@@ -29,16 +29,22 @@ function Ide() {
         const orderedListRegex = /^(\d+)\.\s(.+)$/gm;
         coloredText = coloredText.replace(orderedListRegex, '<span style="color: #fdba74;">$1. $2</span>');
 
-        // İtalik metni renklendirme (tek * veya _ ile)
-        const italicRegex = /(\*[^*]+\*|_[^_]+_)/g;
-        coloredText = coloredText.replace(italicRegex, (match) => {
-            return `<span style="color: #7c3aed;">${match}</span>`;
-        });
-
-        // Bold metni renklendirme (iki * veya __ ile) - İtalik işlenmeden önce
-        const boldRegex = /(\*\*[^*]+\*\*|__[^_]+__)/g;
+        // Önce bold metinleri renklendir
+        const boldRegex = /(__[^_]+__|\*\*[^*]+\*\*)/g;
         coloredText = coloredText.replace(boldRegex, (match) => {
             return `<span style="color: #f59e0b; font-weight: bold;">${match}</span>`;
+        });
+
+        // İtalik metinler için önce iki yıldız işaretine sahip olanları işleyin
+        const italicBoldRegex = /(__[^_]+__|\*\*[^*]+\*\*)/g;
+        coloredText = coloredText.replace(italicBoldRegex, (match) => {
+            return `<span style="color: #f59e0b; font-weight: bold;">${match}</span>`;
+        });
+
+        // Ardından, italic metinleri işleyin (bir yıldız veya alt çizgi ile)
+        const italicRegex = /(_[^_]+_|[^*]\*[^*]+\*)/g;
+        coloredText = coloredText.replace(italicRegex, (match) => {
+            return `<span style="color: #7c3aed;">${match}</span>`;
         });
 
         // İçeriği güncelleme
