@@ -1,13 +1,16 @@
 import React, { useState, useRef } from 'react';
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import classNames from 'classnames';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 function Ide() {
-    const [active, setActive] = useState("output");
+    const [active, setActive] = useState("code");
     const [code, setCode] = useState("");
     const editorRef = useRef(null);
 
     const handleInput = () => {
-        let text = editorRef.current.innerText; // innerText ile metni alıyoruz
+        const text = editorRef.current.innerText;
         setCode(text);
 
         // Code block renklendirme (üç ``` ile)
@@ -65,8 +68,14 @@ function Ide() {
             <div className='p-6'>
                 <div className='w-full flex items-center justify-between'>
                     <div className='flex items-start justify-between gap-4'>
-                        <button className='uppercase font-semibold tracking-widest text-primary'>Code</button>
-                        <button className='uppercase font-semibold tracking-widest text-primary'>Output</button>
+                        <button onClick={() => setActive("code")} className={classNames({
+                            'uppercase font-semibold tracking-widest text-primary': true,
+                            'underline': active === "code"
+                        })}>Code</button>
+                        <button onClick={() => setActive("output")} className={classNames({
+                            'uppercase font-semibold tracking-widest text-primary': true,
+                            'underline': active === "output"
+                        })}>Output</button>
                     </div>
                     <IoIosCloseCircleOutline className='text-2xl text-red-400 transition-all hover:text-red-600 cursor-pointer' />
                 </div>
@@ -82,8 +91,13 @@ function Ide() {
                     </div>}
 
                 {active === "output" &&
-                    <div>
-                        
+                    <div className='w-full h-full bg-tert p-4'>
+                        <ReactMarkdown
+                            children={code}
+                            remarkPlugins={[remarkGfm]}
+                            skipHtml={false}
+                            className='text-primary'
+                        />
                     </div>}
             </div>
         </div>
