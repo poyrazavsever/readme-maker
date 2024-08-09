@@ -5,7 +5,7 @@ import { FaMoon } from "react-icons/fa";
 import Tooltip from './Tooltip';
 function Navbar() {
 
-    const linkStyle = ' text-sm font-semibold uppercase tracking-wider border-b border-neutral-600 inline-block relative px-2 py-1 transition-all !z-50 before:content-[""] before:-z-10 before:w-full before:h-0 before:bg-neutral-200 before:bottom-0 before:left-0 before:absolute before:transition-height hover:before:border-transparent hover:before:h-full shadow-xl'
+    const linkStyle = ' text-sm font-semibold uppercase tracking-wider inline-block relative px-2 py-1 transition-all !z-50 before:content-[""] before:-z-10 before:w-full before:h-0 before:bg-neutral-200 before:bottom-0 before:left-0 before:absolute before:transition-height hover:before:border-transparent hover:before:h-full'
 
     return (
         <div className='w-full items-center justify-between container mx-auto py-4 transition-all hidden desktop:flex'>
