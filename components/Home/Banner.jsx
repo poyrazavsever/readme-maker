@@ -2,7 +2,7 @@ import React from 'react'
 import Ide from '../ide'
 function Banner() {
   return (
-    <div className='flex mobile:w-full flex-col items-start justify-between gap-12 mt-16 desktop:mt-36 desktop:flex-row p-5 sm:p-0'>
+    <div className='flex mobile:w-full flex-col items-start justify-between gap-12 mt-16 desktop:mt-36 desktop:flex-row p-5 md:p-0'>
 
       <div className='flex flex-col items-start mobile:justify-center gap-6 md:w-1/2'>
         <h1 className='text-xl sm:text-3xl md:text-5xl font-extrabold sm:font-black tracking-wider'>Create Your <span className='text-secondary'>README Files</span> with Ease!</h1>
