@@ -12,6 +12,12 @@ module.exports = {
       lg: '948px',
     },
     extend: {
+      colors:{
+        'primary': "#EEEEEE",
+        'secondary': "#76ABAE",
+        'tert': "#31363F",
+        'fourth': "#222831",
+      },
       screens : {
         "mobile" : {"max" : "623px", "min" : "0px"},
         "desktop" : {"min": "624px"}

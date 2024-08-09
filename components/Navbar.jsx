@@ -27,7 +27,7 @@ function Navbar() {
                         <FaStar className='text-xl' />
                     </a>
 
-                    <div className="absolute -left-[116px] hidden group-hover:block -z-40">
+                    <div className="absolute -left-[116px] hidden group-hover:block z-30">
                         <Tooltip message="Star my Github repositories" />
                     </div>
 
@@ -37,7 +37,7 @@ function Navbar() {
                         <FaGithub className='text-xl' />
                     </a>
 
-                    <div className="absolute -left-[116px] hidden group-hover:block -z-40">
+                    <div className="absolute -left-[116px] hidden group-hover:block z-30">
                         <Tooltip message="Check out my Github profile" />
                     </div>
 
