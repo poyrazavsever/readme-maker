@@ -7,10 +7,12 @@ function Layout({ children }) {
     return (
         <div>
 
-           <Navbar />
-           <MobileNavbar />
+            <Navbar />
+            <MobileNavbar />
 
-            {children}
+            <div>
+                {children}
+            </div>
 
         </div>
     )

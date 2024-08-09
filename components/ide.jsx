@@ -64,7 +64,7 @@ function Ide() {
             <div className='p-6'>
                 <div className='w-full flex items-center justify-between'>
                     <h2 className='uppercase font-semibold tracking-widest text-primary'>Try it here</h2>
-                    <IoIosCloseCircleOutline className='text-2xl text-red-400 transition-all hover:text-red-600' />
+                    <IoIosCloseCircleOutline className='text-2xl text-red-400 transition-all hover:text-red-600 cursor-pointer' />
                 </div>
                 <div className='w-full h-[1px] bg-tert my-4'></div>
                 <div>
