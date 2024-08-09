@@ -1,36 +1,49 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
 function Ide() {
-    const [code, setCode] = useState(""); // Saf metin durumu
+    const [code, setCode] = useState("");
     const editorRef = useRef(null);
 
-    const handleInput = (e) => {
-        const text = e.target.innerText; // innerText ile saf metni alıyoruz
+    const handleInput = () => {
+        const text = editorRef.current.innerText; // innerText ile metni alıyoruz
         setCode(text);
-    }
 
-    const highlightSyntax = () => {
-        if (editorRef.current) {
-            const text = editorRef.current.innerText;
-            const coloredText = text.replace(/(#\w+)/g, '<span style="color: blue;">$1</span>');
-            
-            // İçeriği güncelle
-            editorRef.current.innerHTML = coloredText;
+        // Başlıkları (#) renklendirme
+        const headerRegex = /^(#{1,6})\s(.+)$/gm;
+        let coloredText = text.replace(headerRegex, '<span style="color: #f87171;">$1 $2</span>');
 
-            // Caret pozisyonunu sonuna taşı
-            const range = document.createRange();
-            range.selectNodeContents(editorRef.current);
-            range.collapse(false);
-            const sel = window.getSelection();
-            sel.removeAllRanges();
-            sel.addRange(range);
-        }
-    }
+        // Yapılandırılmış listeyi (-, *, +) renklendirme
+        const listRegex = /^(\*|-|\+)\s(.+)$/gm;
+        coloredText = coloredText.replace(listRegex, '<span style="color: #4ade80;">$1 $2</span>');
 
-    useEffect(() => {
-        highlightSyntax();
-    }, [code]);
+        // Numaralı listeyi (1., 2.) renklendirme
+        const orderedListRegex = /^(\d+)\.\s(.+)$/gm;
+        coloredText = coloredText.replace(orderedListRegex, '<span style="color: #fdba74;">$1. $2</span>');
+
+        // İtalik metni renklendirme (tek * veya _ ile)
+        const italicRegex = /(\*[^*]+\*|_[^_]+_)/g;
+        coloredText = coloredText.replace(italicRegex, (match) => {
+            return `<span style="color: #7c3aed;">${match}</span>`;
+        });
+
+        // Kalın metni renklendirme (iki ** veya __ ile)
+        const boldRegex = /(\*\*[^*]+\*\*|__[^_]+__)/g;
+        coloredText = coloredText.replace(boldRegex, (match) => {
+            return `<span style="color: #fbbf24;">${match}</span>`;
+        });
+
+        // İçeriği güncelleme
+        editorRef.current.innerHTML = coloredText;
+
+        // Caret pozisyonunu sonuna taşı
+        const range = document.createRange();
+        range.selectNodeContents(editorRef.current);
+        range.collapse(false);
+        const sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+    };
 
     return (
         <div className='relative h-full w-full z-20 bg-fourth'>
@@ -41,14 +54,13 @@ function Ide() {
                 </div>
                 <div className='w-full h-[1px] bg-tert my-4'></div>
                 <div>
-                    <div 
+                    <div
                         ref={editorRef}
-                        contentEditable 
-                        onInput={handleInput} 
+                        contentEditable
+                        onInput={handleInput}
                         className='w-full bg-fourth text-sm text-primary tracking-wider focus:outline-none'
-                        style={{ whiteSpace: 'pre-wrap' }}
-                    >
-                    </div>
+                        style={{ whiteSpace: 'pre-wrap', minHeight: '200px' }}
+                    />
                 </div>
             </div>
         </div>
