@@ -15,9 +15,9 @@ function MobileNavbar() {
 
 
   return (
-    <div className='hidden mobile:block relative'>
+    <div className='w-full hidden mobile:block relative'>
 
-      <div className='container mx-auto flex items-center justify-between p-6'>
+      <div className='dekstop:container dekstop:mx-auto w-full flex items-center justify-between p-6'>
         <div>
           <img src="/logo/logo.svg" className='w-8' />
         </div>
