@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { IoIosCloseCircleOutline } from "react-icons/io";
 
 function Ide() {
+    const [active, setActive] = useState("output");
     const [code, setCode] = useState("");
     const editorRef = useRef(null);
 
@@ -38,13 +39,13 @@ function Ide() {
         // İtalik metinler için önce iki yıldız işaretine sahip olanları işleyin
         const italicBoldRegex = /(__[^_]+__|\*\*[^*]+\*\*)/g;
         coloredText = coloredText.replace(italicBoldRegex, (match) => {
-            return `<span style="color: #f59e0b; font-weight: bold;">${match}</span>`;
+            return `<span style="color: #3b82f6; font-weight: bold;">${match}</span>`;
         });
 
         // Ardından, italic metinleri işleyin (bir yıldız veya alt çizgi ile)
         const italicRegex = /(_[^_]+_|[^*]\*[^*]+\*)/g;
         coloredText = coloredText.replace(italicRegex, (match) => {
-            return `<span style="color: #7c3aed;">${match}</span>`;
+            return `<span style="color: #a78bfa;">${match}</span>`;
         });
 
         // İçeriği güncelleme
@@ -63,18 +64,27 @@ function Ide() {
         <div className='relative rounded shadow-2xl shadow-tert h-[300px] w-full z-20 bg-fourth overflow-y-scroll scrollbar scrollbar-thumb-secondary scrollbar-track-fourth'>
             <div className='p-6'>
                 <div className='w-full flex items-center justify-between'>
-                    <h2 className='uppercase font-semibold tracking-widest text-primary'>Try it here</h2>
+                    <div className='flex items-start justify-between gap-4'>
+                        <button className='uppercase font-semibold tracking-widest text-primary'>Code</button>
+                        <button className='uppercase font-semibold tracking-widest text-primary'>Output</button>
+                    </div>
                     <IoIosCloseCircleOutline className='text-2xl text-red-400 transition-all hover:text-red-600 cursor-pointer' />
                 </div>
                 <div className='w-full h-[1px] bg-tert my-4'></div>
-                <div>
-                    <div
-                        ref={editorRef}
-                        contentEditable
-                        onInput={handleInput}
-                        className='w-full bg-fourth text-sm text-primary tracking-wider focus:outline-none whitespace-pre-wrap'
-                    />
-                </div>
+                {active === "code" &&
+                    <div>
+                        <div
+                            ref={editorRef}
+                            contentEditable
+                            onInput={handleInput}
+                            className='w-full bg-fourth text-sm text-primary tracking-wider focus:outline-none whitespace-pre-wrap'
+                        />
+                    </div>}
+
+                {active === "output" &&
+                    <div>
+                        
+                    </div>}
             </div>
         </div>
     );
