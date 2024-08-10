@@ -19,7 +19,7 @@ function Navbar({ isDark, setIsDark }) {
             <ul className='flex items-center justify-center gap-6'>
                 <li><a href="/" className={linkStyle}>Home</a></li>
                 <li><a href="/" className={linkStyle}>Readme File</a></li>
-                <li><a href="/" className={linkStyle}>md editör</a></li>
+                <li><a href="/editor" className={linkStyle}>md editör</a></li>
             </ul>
 
             <div className='flex items-center justify-center gap-6'>
