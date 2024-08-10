@@ -12,17 +12,17 @@ function Status() {
 
                 <div className='flex flex-col items-start gap-4 md:w-1/2'>
 
-                    <h3 className='text-lg sm:text-xl md:text-2xl font-bold tracking-wide'><span className='text-secondary'>README Files:</span> The Face of Your Projects</h3>
+                    <h3 className='text-lg sm:text-xl md:text-2xl font-bold tracking-wide dark:text-primary'><span className='text-secondary'>README Files:</span> The Face of Your Projects</h3>
 
-                    <p>README files are essential documents that provide key information and usage instructions for your projects. They explain what the project is about, how to use it, and what features it offers. A well-crafted README makes it easier for others to quickly understand and effectively use your project. Additionally, for open-source projects, it shows contributors how they can get involved and how to get started. In essence, a README file ensures your projects are presented professionally and helps others grasp them with ease.</p>
+                    <p className='font-medium tracking-wide dark:text-primary'>README files are essential documents that provide key information and usage instructions for your projects. They explain what the project is about, how to use it, and what features it offers. A well-crafted README makes it easier for others to quickly understand and effectively use your project. Additionally, for open-source projects, it shows contributors how they can get involved and how to get started. In essence, a README file ensures your projects are presented professionally and helps others grasp them with ease.</p>
 
                 </div>
 
                 <div className='flex flex-col items-start gap-4 md:w-1/2'>
 
-                    <h3 className='text-lg sm:text-xl md:text-2xl font-bold tracking-wide'><span className='text-secondary'>MD Files:</span>  A Simple Yet Powerful Document Format</h3>
+                    <h3 className='text-lg sm:text-xl md:text-2xl font-bold tracking-wide dark:text-primary'><span className='text-secondary'>MD Files:</span>  A Simple Yet Powerful Document Format</h3>
 
-                    <p>Markdown (.md) files are a lightweight markup language used for formatting text content. They allow you to easily organize and format written content, resulting in clean and readable documents. Especially popular for software development and documentation, Markdown provides functionalities like list creation, heading insertion, and linking. This makes your text more accessible and understandable for both users and other developers.</p>
+                    <p className='font-medium tracking-wide dark:text-primary'>Markdown (.md) files are a lightweight markup language used for formatting text content. They allow you to easily organize and format written content, resulting in clean and readable documents. Especially popular for software development and documentation, Markdown provides functionalities like list creation, heading insertion, and linking. This makes your text more accessible and understandable for both users and other developers.</p>
 
                 </div>
 

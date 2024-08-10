@@ -5,7 +5,7 @@ import { FaMoon } from "react-icons/fa";
 import Tooltip from './Tooltip';
 function Navbar() {
 
-    const linkStyle = ' text-sm font-semibold uppercase tracking-wider inline-block relative px-2 py-1 transition-all !z-50 before:content-[""] before:-z-10 before:w-full before:h-0 before:bg-neutral-200 before:bottom-0 before:left-0 before:absolute before:transition-height hover:before:border-transparent hover:before:h-full'
+    const linkStyle = ' text-sm font-semibold uppercase tracking-wider text-fourth dark:text-primary inline-block relative px-2 py-1 transition-all !z-50 before:content-[""] before:-z-10 before:w-full before:h-0 dark:before:bg-tert before:bg-neutral-200 before:bottom-0 before:left-0 before:absolute before:transition-height hover:before:border-transparent hover:before:h-full'
 
     return (
         <div className='w-full items-center justify-between container mx-auto py-4 transition-all hidden desktop:flex'>
@@ -23,7 +23,7 @@ function Navbar() {
             <div className='flex items-center justify-center gap-6'>
 
                 <div className='relative group'>
-                    <a href='https://github.com/poyrazavsever/readme-maker' target='__blank' className='hover:text-neutral-600 transition-all'>
+                    <a href='https://github.com/poyrazavsever/readme-maker' target='__blank' className='hover:text-neutral-600 transition-all dark:text-primary dark:hover:text-secondary'>
                         <FaStar className='text-xl' />
                     </a>
 
@@ -33,7 +33,7 @@ function Navbar() {
 
                 </div>
                 <div className='relative group'>
-                    <a href="https://github.com/poyrazavsever" target='__blank' className='hover:text-neutral-600 transition-all'>
+                    <a href="https://github.com/poyrazavsever" target='__blank' className='hover:text-neutral-600 transition-all dark:text-primary dark:hover:text-secondary'>
                         <FaGithub className='text-xl' />
                     </a>
 
@@ -42,7 +42,7 @@ function Navbar() {
                     </div>
 
                 </div>
-                <FaMoon className='hover:text-neutral-600 transition-all' />
+                <FaMoon className='hover:text-neutral-600 transition-all dark:text-primary dark:hover:text-secondary' />
             </div>
 
 

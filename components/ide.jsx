@@ -64,20 +64,20 @@ function Ide() {
     };
 
     return (
-        <div className='relative rounded shadow-2xl shadow-tert h-[300px] w-full z-20 bg-fourth overflow-y-scroll scrollbar scrollbar-thumb-secondary scrollbar-track-fourth'>
+        <div className='relative rounded shadow-2xl shadow-tert h-[300px] w-full z-20 bg-fourth dark:bg-primary overflow-y-scroll scrollbar scrollbar-thumb-secondary scrollbar-track-fourth dark:scrollbar-track-primary'>
             <div className='p-6'>
                 <div className='w-full flex items-center justify-between'>
                     <div className='flex items-start justify-between gap-4'>
                         <button onClick={() => setActive("code")} className={classNames({
-                            'uppercase font-semibold tracking-widest text-primary': true,
+                            'uppercase font-bold tracking-widest text-primary dark:text-fourth': true,
                             'underline': active === "code"
                         })}>Code</button>
                         <button onClick={() => setActive("output")} className={classNames({
-                            'uppercase font-semibold tracking-widest text-primary': true,
+                            'uppercase font-bold tracking-widest text-primary dark:text-fourth': true,
                             'underline': active === "output"
                         })}>Output</button>
                     </div>
-                    <IoIosCloseCircleOutline className='text-2xl text-red-400 transition-all hover:text-red-600 cursor-pointer' />
+                    <button onClick={() => setCode("")}><IoIosCloseCircleOutline className='text-2xl text-red-400 transition-all hover:text-red-600 cursor-pointer' /></button>
                 </div>
                 <div className='w-full h-[1px] bg-tert my-4'></div>
                 {active === "code" &&
@@ -86,17 +86,17 @@ function Ide() {
                             ref={editorRef}
                             contentEditable
                             onInput={handleInput}
-                            className='w-full bg-fourth text-sm text-primary tracking-wider focus:outline-none whitespace-pre-wrap'
+                            className='w-full bg-fourth dark:bg-primary dark:text-fourth text-sm text-primary tracking-wider focus:outline-none whitespace-pre-wrap'
                         />
                     </div>}
 
                 {active === "output" &&
-                    <div className='w-full h-full bg-tert p-4'>
+                    <div className='w-full h-full bg-tert dark:bg-primary  p-4'>
                         <ReactMarkdown
                             children={code}
                             remarkPlugins={[remarkGfm]}
                             skipHtml={false}
-                            className='text-primary'
+                            className='text-primary dark:text-fourth'
                         />
                     </div>}
             </div>
