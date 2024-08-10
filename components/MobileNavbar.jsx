@@ -59,7 +59,7 @@ function MobileNavbar({ isDark, setIsDark }) {
               <li><a href="/" className={linkStylebot}>
                 <FaGithub className='text-xl' /><span>Check out my Github profile</span>
               </a></li>
-              {isDark == false &&
+              {!isDark &&
                 <li>
                   <button onClick={() => setIsDark(!isDark)} className={linkStylebot}><FaMoon className='text-xl' />
                     <span>It's so bright in here!</span>
@@ -67,7 +67,7 @@ function MobileNavbar({ isDark, setIsDark }) {
                 </li>
               }
 
-              {isDark == true &&
+              {isDark &&
                 <li>
                   <button onClick={() => setIsDark(!isDark)} className={linkStylebot}><FaSun className='text-xl' />
                     <span>The time for enlightenment has come!</span>

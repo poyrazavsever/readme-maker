@@ -1,9 +1,11 @@
 import React from 'react'
 import { FaStar } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
 import Tooltip from './Tooltip';
-function Navbar() {
+
+function Navbar({ isDark, setIsDark }) {
 
     const linkStyle = ' text-sm font-semibold uppercase tracking-wider text-fourth dark:text-primary inline-block relative px-2 py-1 transition-all !z-50 before:content-[""] before:-z-10 before:w-full before:h-0 dark:before:bg-tert before:bg-neutral-200 before:bottom-0 before:left-0 before:absolute before:transition-height hover:before:border-transparent hover:before:h-full'
 
@@ -42,7 +44,16 @@ function Navbar() {
                     </div>
 
                 </div>
-                <FaMoon className='hover:text-neutral-600 transition-all dark:text-primary dark:hover:text-secondary' />
+                {!isDark &&
+                    <button onClick={() => setIsDark(!isDark)}>
+                        <FaMoon className='hover:text-neutral-600 transition-all dark:text-primary dark:hover:text-secondary' />
+                    </button>
+                }
+                {isDark &&
+                    <button onClick={() => setIsDark(!isDark)}>
+                        <FaSun className='hover:text-neutral-600 transition-all dark:text-primary dark:hover:text-secondary text-lg' />
+                    </button>
+                }
             </div>
 
 
