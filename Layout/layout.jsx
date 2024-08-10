@@ -1,12 +1,15 @@
-import React, {useState} from "react"
-
+import React, {useState, useEffect, use} from "react"
 import Navbar from "@/components/Navbar"
 import MobileNavbar from "@/components/MobileNavbar"
 import Footer from "@/components/Footer"
 import classNames from "classnames"
 function Layout({ children }) {
 
-    const [isDark, setIsDark] = useState(false)
+    const [isDark, setIsDark] = useState()
+
+    useEffect(() => {
+        localStorage.setItem("isDark", isDark)
+    }, [isDark])
 
     return (
         <div className={classNames({
