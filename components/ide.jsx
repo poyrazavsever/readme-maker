@@ -15,11 +15,11 @@ function Ide() {
 
         // Code block renklendirme (üç ``` ile)
         const codeBlockRegex = /```([\s\S]*?)```/g;
-        let coloredText = text.replace(codeBlockRegex, '<pre style="color: #e11d48; font-family: monospace;">```$1```</pre>');
+        let coloredText = text.replace(codeBlockRegex, '<pre class="text-red-200 ">```$1```</pre>');
 
         // Inline code renklendirme (tek ` ile)
         const inlineCodeRegex = /`([^`]+)`/g;
-        coloredText = coloredText.replace(inlineCodeRegex, '<span style="color: #e11d48; font-family: monospace;">`$1`</span>');
+        coloredText = coloredText.replace(inlineCodeRegex, '<span class="text-red-500">`$1`</span>');
 
         // Başlıkları (#) renklendirme
         const headerRegex = /^(#{1,6})\s(.+)$/gm;
@@ -91,12 +91,12 @@ function Ide() {
                     </div>}
 
                 {active === "output" &&
-                    <div className='w-full h-full bg-tert dark:bg-primary  p-4'>
+                    <div className='w-full h-full bg-tert dark:bg-primary p-4'>
                         <ReactMarkdown
                             children={code}
                             remarkPlugins={[remarkGfm]}
                             skipHtml={false}
-                            className='text-primary dark:text-fourth'
+                            className='prose prose-invert text-primary dark:text-fourth'
                         />
                     </div>}
             </div>
