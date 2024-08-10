@@ -4,8 +4,9 @@ import { IoMdClose } from "react-icons/io";
 import { FaStar } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaMoon } from "react-icons/fa";
+import { FaSun } from "react-icons/fa";
 
-function MobileNavbar() {
+function MobileNavbar({ isDark, setIsDark }) {
 
   const linkStyle = "text-zinc-800 dark:hover:text-secondary uppercase text-2xl font-bold dark:text-primary tracking-widest before:content-[''] before:absolute before:w-full before:h-[1px] before:rounded-md before:bg-neutral-600 dark:before:bg-secondary before:-bottom-1 before:left-0 before:origin-right before:scale-x-0 before:transition-all before:ease-in-out before:duration-300 hover:before:origin-left hover:before:scale-x-100 relative hover:text-neutral-600 transition-all"
 
@@ -58,9 +59,21 @@ function MobileNavbar() {
               <li><a href="/" className={linkStylebot}>
                 <FaGithub className='text-xl' /><span>Check out my Github profile</span>
               </a></li>
-              <li><a href="/" className={linkStylebot}>
-                <FaMoon className='text-xl' /><span>It's so bright in here!</span>
-              </a></li>
+              {isDark == false &&
+                <li>
+                  <button onClick={() => setIsDark(!isDark)} className={linkStylebot}><FaMoon className='text-xl' />
+                    <span>It's so bright in here!</span>
+                  </button>
+                </li>
+              }
+
+              {isDark == true &&
+                <li>
+                  <button onClick={() => setIsDark(!isDark)} className={linkStylebot}><FaSun className='text-xl' />
+                    <span>The time for enlightenment has come!</span>
+                  </button>
+                </li>
+              }
             </ul>
 
           </div>
