@@ -2,7 +2,9 @@ import React from 'react'
 
 function ProfilePreview() {
   return (
-    <div>ProfilePreview</div>
+    <div>
+      
+    </div>
   )
 }
 

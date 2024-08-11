@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 // Components
 import TopSection from '@/components/ReadmeMaker/TopSection'
-import ProfileGenerator from '@/components/ReadmeMaker/ProfileGenerator'
+import ProfileGenerator from '@/components/ReadmeMaker/ProfileCustomization/ProfileGenerator'
 import ProjectGenerator from '@/components/ReadmeMaker/ProjectGenerator'
 
 function ReadmeMaker() {

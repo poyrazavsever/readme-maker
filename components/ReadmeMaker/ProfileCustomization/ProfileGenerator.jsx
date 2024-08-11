@@ -20,7 +20,7 @@ function ProfileGenerator() {
       </div>
 
       {/* Orta kısım: Render edilmiş önizleme */}
-      <div className="col-span-6 bg-white dark:bg-secondary p-4">
+      <div className="col-span-6 bg-white dark:bg-neutral-200 p-4 shadow">
         <ProfilePreview customizationData={customizationData} />
         {selectedElement}
       </div>
