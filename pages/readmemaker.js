@@ -9,7 +9,7 @@ function ReadmeMaker() {
     const [section, setSection] = useState("project")
 
     return (
-        <div>
+        <div className='md:container md:mx-auto'>
             <TopSection section={section} setSection={setSection}/>
         </div>
     )
