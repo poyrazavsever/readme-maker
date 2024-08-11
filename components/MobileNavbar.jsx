@@ -46,7 +46,7 @@ function MobileNavbar({ isDark, setIsDark }) {
           <div>
             <ul className='mt-24 flex flex-col items-start justify-center gap-16'>
               <li><a href="/" className={linkStyle}>-Home</a></li>
-              <li><a href="/" className={linkStyle}>-Readme Maker</a></li>
+              <li><a href="/readmemaker" className={linkStyle}>-Readme Maker</a></li>
               <li><a href="/editor" className={linkStyle}>-MD Editor</a></li>
             </ul>
 
