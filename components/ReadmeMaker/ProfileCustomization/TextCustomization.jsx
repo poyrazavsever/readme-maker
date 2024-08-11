@@ -10,17 +10,17 @@ function TextCustomization({ onTextChange }) {
     };
 
     return (
-        <div className="w-full">
-            <label htmlFor="customText" className="block text-sm font-medium text-gray-700">
+        <div className="w-full pt-6">
+            <label htmlFor="customText" className="block font-medium text-primary dark:text-fourth">
                 Enter Text
             </label>
-            <textarea
+            <input
                 id="customText"
                 value={text}
                 onChange={handleChange}
                 placeholder="Write your text here..."
                 rows="6"
-                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                className="mt-2 py-3 px-4 block w-full rounded-md sm:text-sm focus:outline-none dark:bg-fourth shadow dark:text-primary"
             />
         </div>
     );
