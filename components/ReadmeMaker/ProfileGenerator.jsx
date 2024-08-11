@@ -10,7 +10,8 @@ function ProfileGenerator() {
   const [customizationData, setCustomizationData] = useState({});
 
   return (
-    <div className="grid grid-cols-12 gap-4">
+    <div className="grid grid-cols-12 gap-4 my-12">
+
       {/* Sol taraf: Eleman seçimi */}
       <div className="col-span-3 bg-fourth dark:bg-primary p-4">
         <ProfileElements 
@@ -21,6 +22,7 @@ function ProfileGenerator() {
       {/* Orta kısım: Render edilmiş önizleme */}
       <div className="col-span-6 bg-white dark:bg-secondary p-4">
         <ProfilePreview customizationData={customizationData} />
+        {selectedElement}
       </div>
 
       {/* Sağ taraf: Seçilen elemanın özelleştirilmesi */}
@@ -33,6 +35,7 @@ function ProfileGenerator() {
           />
         )}
       </div>
+
     </div>
   );
 }
