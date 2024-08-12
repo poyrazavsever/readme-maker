@@ -1,0 +1,17 @@
+[
+  {
+    "id": "Template1",
+    "fileName": "Template1.md",
+    "content": "<h1 align=\"center\">Hİ! My name is (Your name)</h1>\n"
+  },
+  {
+    "id": "Template2",
+    "fileName": "Template2.md",
+    "content": "<h1 align=\"center\">Hİ! My name is (Your name)</h1>\n"
+  },
+  {
+    "id": "Template3",
+    "fileName": "Template3.md",
+    "content": "<h1 align=\"center\">Hİ! My name is (Your name)</h1>\n"
+  }
+]
