@@ -1,8 +1,14 @@
 import React from 'react'
+import { promises as fs } from 'fs';
 
 function Templates() {
+
+  const templateData = fs.watch.
+
   return (
-    <div>Templates</div>
+    <div>
+      <div className=''></div>
+    </div>
   )
 }
 
