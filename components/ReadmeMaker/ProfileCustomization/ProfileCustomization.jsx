@@ -12,9 +12,9 @@ import ActivitiesCustomization from './ActivitiesCustomization';
 import Stats from './Stats';
 
 function ProfileCustomization({ selectedElement }) {
-    const [customizationData, setCustomizationData] = useState({});
     const [text, setText] = useState()
     const [ımageLink, setImageLink] = useState()
+    const [template, setTemplate] = useState()
 
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
@@ -25,7 +25,7 @@ function ProfileCustomization({ selectedElement }) {
             case 'Image':
                 return <ImageCustomization setImageLink={setImageLink} />;
             case 'Templates':
-                return <Templates />;
+                return <Templates setTemplate={setTemplate}/>;
             case 'Techs':
                 return <Techs />;
             case 'Views':

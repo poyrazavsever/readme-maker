@@ -12,7 +12,9 @@ const getMarkdownFiles = (dir) => {
 const convertMarkdownToJSON = (filePath) => {
   const content = fs.readFileSync(filePath, 'utf-8');
   const htmlContent = marked(content); // 'marked' fonksiyonunun doğru kullanımı
+  const id = path.basename(filePath, '.md'); // Dosya adını id olarak kullanıyoruz
   return {
+    id, // id özelliği ekleniyor
     fileName: path.basename(filePath),
     content: htmlContent
   };
