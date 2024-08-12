@@ -1,22 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-function TextCustomization({ onTextChange }) {
-    const [text, setText] = useState('');
-
+function TextCustomization({ setText }) {
     const handleChange = (e) => {
         const newText = e.target.value;
-        setText(newText);
-        onTextChange(newText);  // Direkt metni gönderiyoruz
+        setText(newText);  // Direkt metni gönderiyoruz
     };
 
     return (
-        <div className="w-full pt-6">
+        <div className="flex flex-col pt-6">
             <label htmlFor="customText" className="block font-medium text-primary dark:text-fourth">
                 Enter Text
             </label>
             <input
                 id="customText"
-                value={text}
                 onChange={handleChange}
                 placeholder="Write your text here..."
                 rows="6"
