@@ -29,7 +29,7 @@ const Techs = ({setSelectedTechs}) => {
         placeholder="Search technologies..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="px-3 py-2 w-full rounded bg-tert bg-opacity-50 text-primary focus:outline-none my-6"
+        className="px-3 py-2 w-full rounded bg-tert bg-opacity-50 text-primary focus:outline-none my-6 dark:bg-zinc-200 dark:shadow-md dark:text-fourth dark:opacity-100 dark:placeholder:text-fourth"
 
       />
 
