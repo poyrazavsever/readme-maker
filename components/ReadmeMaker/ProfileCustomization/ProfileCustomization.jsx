@@ -15,6 +15,8 @@ function ProfileCustomization({ selectedElement }) {
     const [text, setText] = useState()
     const [ımageLink, setImageLink] = useState()
     const [template, setTemplate] = useState()
+    const [selectedTechs, setSelectedTechs] = useState([]);
+
 
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
@@ -25,9 +27,9 @@ function ProfileCustomization({ selectedElement }) {
             case 'Image':
                 return <ImageCustomization setImageLink={setImageLink} />;
             case 'Templates':
-                return <Templates setTemplate={setTemplate}/>;
+                return <Templates setTemplate={setTemplate} />;
             case 'Techs':
-                return <Techs />;
+                return <Techs setSelectedTechs={setSelectedTechs}/>;
             case 'Views':
                 return <Views />;
             case 'Social Media':
@@ -45,7 +47,7 @@ function ProfileCustomization({ selectedElement }) {
     };
 
     return (
-        <div className="profile-customization">
+        <div>
             {renderCustomizationComponent()}
         </div>
     );
