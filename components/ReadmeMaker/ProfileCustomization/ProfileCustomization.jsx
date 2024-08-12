@@ -29,7 +29,7 @@ function ProfileCustomization({ selectedElement }) {
                 return <TextCustomization onTextChange={handleTextChange} />;
             case 'Image':
                 return <ImageCustomization onImageLinkChange={handleImageLinkChange} />;
-            // Diğer case'ler eklenebilir
+            
             default:
                 return <div>Select an element to customize</div>;
         }
@@ -38,7 +38,6 @@ function ProfileCustomization({ selectedElement }) {
     return (
         <div className="profile-customization">
             {renderCustomizationComponent()}
-            {/* Eklenen verilerin önizlemesi veya başka elementler eklenebilir */}
         </div>
     );
 }
