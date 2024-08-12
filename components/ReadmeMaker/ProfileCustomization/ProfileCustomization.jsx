@@ -16,7 +16,9 @@ function ProfileCustomization({ selectedElement }) {
     const [ımageLink, setImageLink] = useState()
     const [template, setTemplate] = useState()
     const [selectedTechs, setSelectedTechs] = useState([]);
+    const [viewMarkdown ,setViewMarkdown] = useState("")
 
+    console.log(viewMarkdown)
 
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
@@ -31,7 +33,7 @@ function ProfileCustomization({ selectedElement }) {
             case 'Techs':
                 return <Techs setSelectedTechs={setSelectedTechs}/>;
             case 'Views':
-                return <Views />;
+                return <Views setViewMarkdown={setViewMarkdown}/>;
             case 'Social Media':
                 return <SocialMediaCustomization />;
             case 'Music':
