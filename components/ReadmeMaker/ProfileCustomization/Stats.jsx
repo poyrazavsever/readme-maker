@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 const Stats = ({ setStatsList }) => {
+
   const [activeSection, setActiveSection] = useState('layout');
   const [align, setAlign] = useState('center');
   const [direction, setDirection] = useState('row');

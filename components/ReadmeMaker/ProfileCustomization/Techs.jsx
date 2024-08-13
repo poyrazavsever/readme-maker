@@ -80,7 +80,7 @@ const Techs = ({ savedTechs, setSavedTechs }) => {
                 alt={`${tech} logo`}
                 className={classNames({
                   'w-12': techConfig[tech]?.provider === 'devicons' || techConfig[tech]?.provider === 'simple_icons',
-                  'w-36': techConfig[tech]?.provider !== 'devicons' && techConfig[tech]?.provider !== 'simple_icons' || !techConfig[tech]?.provider
+                  'w-36': techConfig[tech]?.provider === 'shields'
                 })}
               />
               <button
