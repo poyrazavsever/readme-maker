@@ -19,9 +19,6 @@ const ImageCustomization = ({ setImageList, imageList}) => {
             setFloat('none');
         }
     };
-
-    console.log(imageList)
-
     return (
         <div className='animation-card'>
             <h2 className='pt-6 uppercase tracking-wider font-semibold text-primary dark:text-fourth'>Image Customization</h2>
