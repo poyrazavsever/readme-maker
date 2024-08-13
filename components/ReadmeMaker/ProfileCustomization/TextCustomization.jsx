@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function TextCustomization({ setText }) {
+    const [text, setTextState] = useState('');
     const [align, setAlign] = useState('left');
+    const textareaRef = useRef(null);
+
+    useEffect(() => {
+        const markdownText = `<p align="${align}">${text}</p>`;
+        setText(markdownText);
+    }, [text, align, setText]);
 
     const handleTextChange = (e) => {
-        const newText = e.target.value;
-        const markdownText = `<p align="${align}">${newText}</p>`;
-        setText(markdownText);  // Markdown formatında metni kaydediyoruz
+        setTextState(e.target.value);
     };
 
     const handleAlignChange = (e) => {
         setAlign(e.target.value);
-        const inputText = document.getElementById('customText').value;
-        const markdownText = `<p align="${e.target.value}">${inputText}</p>`;
-        setText(markdownText);  // Hizalamayı güncelleyip kaydediyoruz
     };
 
     return (
@@ -23,6 +25,7 @@ function TextCustomization({ setText }) {
             </label>
             <textarea
                 id="customText"
+                ref={textareaRef}
                 onChange={handleTextChange}
                 placeholder="Write your text here..."
                 rows="6"

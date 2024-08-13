@@ -21,7 +21,7 @@ function ProfileCustomization({ selectedElement }) {
     const [statsList, setStatsList] = useState([])
     const [savedTechs, setSavedTechs] = useState([]);
 
-    console.log(savedTechs)
+    console.log(text)
 
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
