@@ -19,8 +19,9 @@ function ProfileCustomization({ selectedElement }) {
     const [selectedIcons, setSelectedIcons] = useState([]);
     const [markdownList, setMarkdownList] = useState([]);
     const [activitiesList ,setActivitiesList ] = useState();
+    const [statsList, setStatsList] = useState([])
 
-    console.log(activitiesList)
+    console.log(statsList)
 
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
@@ -41,7 +42,7 @@ function ProfileCustomization({ selectedElement }) {
             case 'My Activities':
                 return <ActivitiesCustomization setActivitiesList={setActivitiesList}/>;
             case 'Stats':
-                return <Stats />;
+                return <Stats setStatsList={setStatsList}/>;
 
             default:
                 return <div>Select an element to customize</div>;
