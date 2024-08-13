@@ -17,6 +17,8 @@ function ProfileCustomization({ selectedElement }) {
     const [template, setTemplate] = useState()
     const [selectedTechs, setSelectedTechs] = useState([]);
     const [viewMarkdown ,setViewMarkdown] = useState("")
+    const [selectedIcons, setSelectedIcons] = useState([]);
+    const [markdownList, setMarkdownList] = useState([]);
 
     console.log(viewMarkdown)
 
@@ -35,7 +37,7 @@ function ProfileCustomization({ selectedElement }) {
             case 'Views':
                 return <Views setViewMarkdown={setViewMarkdown}/>;
             case 'Social Media':
-                return <SocialMediaCustomization />;
+                return <SocialMediaCustomization selectedIcons={selectedIcons} setSelectedIcons={setSelectedIcons} markdownList={markdownList} setMarkdownList={setMarkdownList}/>;
             case 'Music':
                 return <MusicCustomization />;
             case 'My Activities':
