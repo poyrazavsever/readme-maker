@@ -1,4 +1,4 @@
-import React, { use, useState } from 'react';
+import React, { useState } from 'react';
 
 // Components
 import ImageCustomization from './ImageCustomization';
@@ -7,13 +7,12 @@ import Templates from './Templates';
 import Techs from './Techs';
 import Views from './Views';
 import SocialMediaCustomization from './SocialMediaCustomization';
-import MusicCustomization from './MusicCustomization';
 import ActivitiesCustomization from './ActivitiesCustomization';
 import Stats from './Stats';
 
 function ProfileCustomization({ selectedElement }) {
     const [text, setText] = useState()
-    const [ımageLink, setImageLink] = useState()
+    const [imageList, setImageList] = useState([])
     const [template, setTemplate] = useState()
     const [selectedTechs, setSelectedTechs] = useState([]);
     const [viewMarkdown ,setViewMarkdown] = useState("")
@@ -29,7 +28,7 @@ function ProfileCustomization({ selectedElement }) {
             case 'Text':
                 return <TextCustomization setText={setText} />;
             case 'Image':
-                return <ImageCustomization setImageLink={setImageLink} />;
+                return <ImageCustomization setImageList={setImageList} imageList={imageList}/>;
             case 'Templates':
                 return <Templates setTemplate={setTemplate} />;
             case 'Techs':
@@ -38,8 +37,6 @@ function ProfileCustomization({ selectedElement }) {
                 return <Views setViewMarkdown={setViewMarkdown}/>;
             case 'Social Media':
                 return <SocialMediaCustomization selectedIcons={selectedIcons} setSelectedIcons={setSelectedIcons} markdownList={markdownList} setMarkdownList={setMarkdownList}/>;
-            case 'Music':
-                return <MusicCustomization />;
             case 'My Activities':
                 return <ActivitiesCustomization />;
             case 'Stats':
