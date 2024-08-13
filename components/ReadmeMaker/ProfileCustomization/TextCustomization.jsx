@@ -1,14 +1,14 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function TextCustomization({ setText }) {
     const [text, setTextState] = useState('');
     const [align, setAlign] = useState('left');
-    const textareaRef = useRef(null);
+    const [tag, setTag] = useState('p');
 
     useEffect(() => {
-        const markdownText = `<p align="${align}">${text}</p>`;
+        const markdownText = `<${tag} align="${align}">${text}</${tag}>`;
         setText(markdownText);
-    }, [text, align, setText]);
+    }, [text, align, tag, setText]);
 
     const handleTextChange = (e) => {
         setTextState(e.target.value);
@@ -18,6 +18,10 @@ function TextCustomization({ setText }) {
         setAlign(e.target.value);
     };
 
+    const handleTagChange = (e) => {
+        setTag(e.target.value);
+    };
+
     return (
         <div className="flex flex-col pt-6">
             <label htmlFor="customText" className="block font-medium text-primary dark:text-fourth">
@@ -25,7 +29,6 @@ function TextCustomization({ setText }) {
             </label>
             <textarea
                 id="customText"
-                ref={textareaRef}
                 onChange={handleTextChange}
                 placeholder="Write your text here..."
                 rows="6"
@@ -40,6 +43,21 @@ function TextCustomization({ setText }) {
                     <option value="left">Left</option>
                     <option value="center">Center</option>
                     <option value="right">Right</option>
+                </select>
+            </div>
+            <div className="flex items-center mt-4 space-x-4">
+                <label className="block font-medium text-primary dark:text-fourth">Tag:</label>
+                <select
+                    value={tag}
+                    onChange={handleTagChange}
+                    className="block py-2 px-4 rounded-md dark:bg-fourth dark:text-primary">
+                    <option value="p">Paragraph</option>
+                    <option value="h1">Heading 1</option>
+                    <option value="h2">Heading 2</option>
+                    <option value="h3">Heading 3</option>
+                    <option value="h4">Heading 4</option>
+                    <option value="h5">Heading 5</option>
+                    <option value="h6">Heading 6</option>
                 </select>
             </div>
         </div>
