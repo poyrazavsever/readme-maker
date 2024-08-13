@@ -21,6 +21,8 @@ function ProfileCustomization({ selectedElement }) {
     const [statsList, setStatsList] = useState([])
     const [savedTechs, setSavedTechs] = useState([]);
 
+    console.log(savedTechs)
+
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
     const renderCustomizationComponent = () => {

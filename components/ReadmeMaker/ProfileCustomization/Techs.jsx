@@ -2,24 +2,22 @@ import React, { useState } from 'react';
 import { tech_icons } from './techIcon'; // techIcon.jsx dosyasından verileri içe aktar
 import classNames from 'classnames';
 
-const Techs = ({savedTechs, setSavedTechs}) => {
+const Techs = ({ savedTechs, setSavedTechs }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTechs, setSelectedTechsLocal] = useState([]);
   const [currentTech, setCurrentTech] = useState(null);
   const [techConfig, setTechConfig] = useState({});
   const [activeSection, setActiveSection] = useState('layout');
-  
-  // Provider değerinin doğru bir şekilde alınması için bir varsayılan değer belirleyin
+  const [globalAlign, setGlobalAlign] = useState('left');
+
   const getProviderPath = (tech, provider) => {
     return tech_icons.find(t => t.name === tech)?.providers[provider]?.path;
   };
 
-  // Arama terimine göre filtrelenmiş ikonları al
   const filteredTechs = tech_icons.filter(tech =>
     tech.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Bir teknolojiyi seçmek veya seçimi kaldırmak için işlev
   const toggleTech = (tech) => {
     if (selectedTechs.includes(tech)) {
       setSelectedTechsLocal(prevSelectedTechs =>
@@ -36,7 +34,6 @@ const Techs = ({savedTechs, setSavedTechs}) => {
     }
   };
 
-  // Teknoloji için provider ve konfigürasyon ayarlarını güncelle
   const updateTechConfig = (key, value) => {
     setTechConfig(prevConfig => ({
       ...prevConfig,
@@ -47,7 +44,6 @@ const Techs = ({savedTechs, setSavedTechs}) => {
     }));
   };
 
-  // Seçilen teknolojilerin formatlı bir şekilde kaydedilmesi
   const saveTechs = () => {
     const formattedTechs = selectedTechs.map(tech => {
       const provider = techConfig[tech]?.provider || 'devicons'; // Default provider
@@ -55,13 +51,22 @@ const Techs = ({savedTechs, setSavedTechs}) => {
         name: `${tech}`,
         src: getProviderPath(tech, provider),
         alt: `${tech} logo`,
-        md: `<img src=${getProviderPath(tech, provider)} alt="${tech} logo" height="40" />`,
+        md: `<img src=${getProviderPath(tech, provider)} alt="${tech} logo" height="40" align="${globalAlign}" />`,
       };
     });
-    setSavedTechs(formattedTechs);
+
+    setSavedTechs(prevSavedTechs => [...prevSavedTechs, ...formattedTechs]);
+
+    setSelectedTechsLocal([]);
+    setTechConfig({});
+    setCurrentTech(null);
+    setActiveSection('layout'); // Layout sekmesine geri dön
   };
 
-  // Seçilen teknolojilerin gösterilmesi için HTML oluştur
+  const deleteTech = (techName) => {
+    setSavedTechs(prevSavedTechs => prevSavedTechs.filter(tech => tech.name !== techName));
+  };
+
   const renderSelectedTechs = () => {
     return (
       <div className="flex flex-wrap items-center gap-4 mt-4">
@@ -91,7 +96,24 @@ const Techs = ({savedTechs, setSavedTechs}) => {
     );
   };
 
-  // Seçilen teknolojiye göre konfigürasyon bölümünü render et
+  const renderSavedTechs = () => {
+    return (
+      <div className="flex flex-wrap items-center gap-4 mt-4">
+        {savedTechs.map((tech, index) => (
+          <div key={index} className="flex items-center gap-2">
+            <img src={tech.src} alt={tech.alt} className='w-12' />
+            <button
+              onClick={() => deleteTech(tech.name)}
+              className="ml-2 px-2 py-1 bg-red-500 text-white rounded"
+            >
+              Delete
+            </button>
+          </div>
+        ))}
+      </div>
+    );
+  };
+
   const renderTechConfig = () => {
     if (!currentTech) return null;
     const tech = tech_icons.find(t => t.name === currentTech);
@@ -107,18 +129,6 @@ const Techs = ({savedTechs, setSavedTechs}) => {
           {tech_icons.find(t => t.name === currentTech)?.providers.simple_icons && <option value="simple_icons">Simple Icons</option>}
           {tech_icons.find(t => t.name === currentTech)?.providers.devicons && <option value="devicons">Dev Icons</option>}
           {tech_icons.find(t => t.name === currentTech)?.providers.shields && <option value="shields">Shields</option>}
-        </select>
-
-        <label htmlFor="align" className='text-xs uppercase tracking-wide font-medium text-primary dark:text-fourth mt-4'>Alignment</label>
-        <select
-          id="align"
-          value={techConfig[currentTech]?.align || 'left'}
-          onChange={(e) => updateTechConfig('align', e.target.value)}
-          className="px-3 py-2 w-full rounded bg-tert bg-opacity-50 text-primary focus:outline-none dark:bg-zinc-200 dark:shadow-md dark:text-fourth dark:opacity-100"
-        >
-          <option value="left">Left</option>
-          <option value="center">Center</option>
-          <option value="right">Right</option>
         </select>
       </div>
     );
@@ -147,23 +157,28 @@ const Techs = ({savedTechs, setSavedTechs}) => {
 
           {/* Seçim Bölümü */}
           <div className="flex flex-wrap items-center gap-x-4 gap-y-7 my-8">
-            {filteredTechs.map((tech) => (
-              tech.providers.devicons && (
+            {filteredTechs.map((tech) => {
+              const providerPath = tech.providers.devicons?.path ||
+                tech.providers.simple_icons?.path ||
+                tech.providers.shields?.path;
+
+              if (!providerPath) return null;
+
+              return (
                 <button
                   key={tech.name}
                   className={`cursor-pointer w-10 ${selectedTechs.includes(tech.name) ? 'border-2 border-blue-500' : ''}`}
                   onClick={() => toggleTech(tech.name)}
                 >
                   <img
-                    src={tech.providers.devicons?.path || tech.providers.simple_icons?.path || tech.providers.shields?.path}
+                    src={providerPath}
                     alt={tech.name}
                     className="w-full"
                   />
                 </button>
-              )
-            ))}
+              );
+            })}
           </div>
-
         </>
       )}
 
@@ -172,16 +187,26 @@ const Techs = ({savedTechs, setSavedTechs}) => {
           {/* Konfigürasyon Bölümü */}
           {renderTechConfig()}
 
+          {/* Genel Align Ayarı */}
+          <div className="mt-6">
+            <label htmlFor="align" className='text-xs uppercase tracking-wide font-medium text-primary dark:text-fourth mt-4'>Alignment</label>
+            <select
+              id="align"
+              value={globalAlign}
+              onChange={(e) => setGlobalAlign(e.target.value)}
+              className="px-3 py-2 w-full rounded bg-tert bg-opacity-50 text-primary focus:outline-none dark:bg-zinc-200 dark:shadow-md dark:text-fourth dark:opacity-100"
+            >
+              <option value="left">Left</option>
+              <option value="center">Center</option>
+              <option value="right">Right</option>
+            </select>
+          </div>
+
           {/* Kaydedilen Teknolojiler */}
           <div className="mt-6">
             {savedTechs.length > 0 && (
-              <div align={techConfig[currentTech]?.align || 'left'}>
-                {savedTechs.map((tech, index) => (
-                  <React.Fragment key={index}>
-                    <img src={tech.src} alt={tech.alt} className='w-12' />
-                    {index < savedTechs.length - 1 && <img width="12" className='w-12' />}
-                  </React.Fragment>
-                ))}
+              <div align={globalAlign}>
+                {renderSavedTechs()}
               </div>
             )}
 
@@ -191,9 +216,9 @@ const Techs = ({savedTechs, setSavedTechs}) => {
             {/* Kaydet Butonu */}
             <button
               onClick={saveTechs}
-              className="px-4 py-2 bg-blue-500 text-white rounded mt-4"
+              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
             >
-              Kaydet
+              Save Selected Technologies
             </button>
           </div>
         </>
