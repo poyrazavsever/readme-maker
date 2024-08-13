@@ -14,14 +14,12 @@ function ProfileCustomization({ selectedElement }) {
     const [text, setText] = useState()
     const [imageList, setImageList] = useState([])
     const [template, setTemplate] = useState()
-    const [selectedTechs, setSelectedTechs] = useState([]);
     const [viewMarkdown ,setViewMarkdown] = useState("")
     const [selectedIcons, setSelectedIcons] = useState([]);
     const [markdownList, setMarkdownList] = useState([]);
     const [activitiesList ,setActivitiesList ] = useState();
     const [statsList, setStatsList] = useState([])
-
-    console.log(statsList)
+    const [savedTechs, setSavedTechs] = useState([]);
 
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
@@ -34,7 +32,7 @@ function ProfileCustomization({ selectedElement }) {
             case 'Templates':
                 return <Templates setTemplate={setTemplate} />;
             case 'Techs':
-                return <Techs setSelectedTechs={setSelectedTechs}/>;
+                return <Techs setSavedTechs={setSavedTechs} savedTechs={savedTechs}/>;
             case 'Views':
                 return <Views setViewMarkdown={setViewMarkdown}/>;
             case 'Social Media':
