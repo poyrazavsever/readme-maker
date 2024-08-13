@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { act, useState } from 'react';
 
 // Components
 import ImageCustomization from './ImageCustomization';
@@ -18,8 +18,9 @@ function ProfileCustomization({ selectedElement }) {
     const [viewMarkdown ,setViewMarkdown] = useState("")
     const [selectedIcons, setSelectedIcons] = useState([]);
     const [markdownList, setMarkdownList] = useState([]);
+    const [activitiesList ,setActivitiesList ] = useState();
 
-    console.log(viewMarkdown)
+    console.log(activitiesList)
 
     // Diğer özelleştirme fonksiyonları da buraya eklenecek
 
@@ -38,7 +39,7 @@ function ProfileCustomization({ selectedElement }) {
             case 'Social Media':
                 return <SocialMediaCustomization selectedIcons={selectedIcons} setSelectedIcons={setSelectedIcons} markdownList={markdownList} setMarkdownList={setMarkdownList}/>;
             case 'My Activities':
-                return <ActivitiesCustomization />;
+                return <ActivitiesCustomization setActivitiesList={setActivitiesList}/>;
             case 'Stats':
                 return <Stats />;
 
