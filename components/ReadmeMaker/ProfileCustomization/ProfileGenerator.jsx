@@ -21,8 +21,8 @@ function ProfileGenerator() {
       </div>
 
       {/* Orta kısım: Render edilmiş önizleme */}
-      <div className="col-span-6 bg-white dark:bg-neutral-200 p-4 shadow h-[600px]">
-        <ProfilePreview />
+      <div className="col-span-6 bg-white dark:bg-neutral-200 p-4 shadow h-[600px] overflow-y-scroll">
+        <ProfilePreview createdTemplate={createdTemplate}/>
       </div>
 
       {/* Sağ taraf: Seçilen elemanın özelleştirilmesi */}

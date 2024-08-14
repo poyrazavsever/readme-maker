@@ -51,7 +51,7 @@ const Techs = ({ savedTechs, setSavedTechs }) => {
         name: `${tech}`,
         src: getProviderPath(tech, provider),
         alt: `${tech} logo`,
-        md: `<img src=${getProviderPath(tech, provider)} alt="${tech} logo" height="40" align="${globalAlign}" />`,
+        md: `<img src="${getProviderPath(tech, provider)}" alt="${tech} logo" height="40" align="${globalAlign}" />`,
       };
     });
 

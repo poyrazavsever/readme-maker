@@ -23,7 +23,18 @@ function ProfileCustomization({ selectedElement, setCreatedTemplate }) {
 
 
     useEffect(() => {
-        const createMarkdownList = (list) => list.map(item => item.md || '').join('\n');
+        console.log('markdownList:', markdownList);
+        console.log('activitiesList:', activitiesList);
+        console.log('statsList:', statsList);
+        console.log('savedTechs:', savedTechs);
+
+        const createMarkdownList = (list) => {
+            if (!Array.isArray(list)) {
+                console.error('Expected an array but received:', list);
+                return '';
+            }
+            return list.map(item => item.md || '').join('\n');
+        };
 
         const createdDiv = `
             \n${text || ''}
@@ -34,8 +45,10 @@ function ProfileCustomization({ selectedElement, setCreatedTemplate }) {
             \n\n${createMarkdownList(statsList)}
             \n\n${createMarkdownList(savedTechs)}
         `;
-        setCreatedTemplate(createdDiv)
+
+        setCreatedTemplate(createdDiv);
     }, [text, imageList, viewMarkdown, markdownList, activitiesList, statsList, savedTechs]);
+
 
     const renderCustomizationComponent = () => {
         switch (selectedElement) {
