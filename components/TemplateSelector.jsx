@@ -9,6 +9,8 @@ const TemplateSelector = () => {
 
   const dispatch = useDispatch();
 
+  const selectedTemplate = useSelector((state) => state.template.selectedTemplate)
+
   const [templates, setTemplates] = useState([]);
 
   useEffect(() => {
@@ -22,6 +24,8 @@ const TemplateSelector = () => {
   const handleSelect = (id) => {
     dispatch(selectTemplate(id));
   };
+
+  
 
   return (
     <div className='flex flex-col items-start gap-12'>
