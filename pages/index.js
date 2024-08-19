@@ -1,6 +1,6 @@
 import TemplateSelector from '../components/TemplateSelector';
 
-import TextAdded from '@/components/Text/TextAdded';
+import NameAdded from '@/components/Text/NameAdded';
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
         <TemplateSelector />
       </div>
 
-      <TextAdded />
+      <NameAdded />
 
     </div>
   );
