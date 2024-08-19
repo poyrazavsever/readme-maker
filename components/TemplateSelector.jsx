@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTemplate } from '../redux/template/templateSlice';
+import { selectTemplate } from '../redux/slice/templateSlice';
 
 // Icons
 import { FaEye } from "react-icons/fa";

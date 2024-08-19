@@ -5,6 +5,7 @@ const initialState = {
     name: "",
     githubUsername: "",
     techs: [],
+    socialMedia: [],
 };
 
 const informationSlice = createSlice({

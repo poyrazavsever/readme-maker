@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { tech_icons } from '../public/assets/tech-icons'; // Veriyi içe aktarıyoruz
-import { addedTech, deletedTech } from '../redux/template/informationSlice'; // Redux slice'ını içe aktarıyoruz
+import { addedTech, deletedTech } from '../redux/slice/informationSlice'; // Redux slice'ını içe aktarıyoruz
 
 const defaultIcon = '/path/to/default/icon.png'; // Varsayılan görselin yolu
 

@@ -1,6 +1,6 @@
 import { use, useState } from "react";
 import { useDispatch } from "react-redux";
-import { setText } from "@/redux/template/informationSlice";
+import { setText } from "@/redux/slice/informationSlice";
 
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";

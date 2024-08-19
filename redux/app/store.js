@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import templateReducer from '../template/templateSlice';
-import informationReducer from "../template/informationSlice"
+import templateReducer from '../slice/templateSlice';
+import informationReducer from "../slice/informationSlice"
 
 const store = configureStore({
   reducer: {

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setGithubUsername } from "@/redux/template/informationSlice";
+import { setGithubUsername } from "@/redux/slice/informationSlice";
 import toast from 'react-hot-toast'
 
 // Icon
