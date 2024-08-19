@@ -5,7 +5,7 @@ import { setName } from "@/redux/slice/informationSlice";
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
 
-function NameAdded() {
+function NameAdded({setCurrentStep}) {
 
     const dispatch = useDispatch()
 
@@ -16,6 +16,7 @@ function NameAdded() {
     const handleClick = () => {
         if(onSave) {
             dispatch(setName(nameChange))
+            setCurrentStep(3)
         }
     }
 

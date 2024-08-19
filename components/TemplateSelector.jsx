@@ -43,7 +43,7 @@ const TemplateSelector = () => {
 
               <div className="flex flex-col items-center justify-center gap-3">
 
-                <h3 className='text-5xl font-black tracking-wide text-zinc-200'>{template.name}</h3>
+                <h3 className='text-5xl font-black tracking-wide text-zinc-200'>{template.templateName}</h3>
 
               </div>
 

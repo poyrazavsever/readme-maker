@@ -5,7 +5,7 @@ import { addedTech, deletedTech } from '../redux/slice/informationSlice'; // Red
 
 const defaultIcon = '/path/to/default/icon.png'; // Varsayılan görselin yolu
 
-const SelectedTechs = () => {
+const SelectedTechs = ({ setCurrentStep }) => {
   const dispatch = useDispatch();
   const selectedTechs = useSelector((state) => state.information.techs); // Redux'tan seçilen teknolojileri alıyoruz
   const [searchTerm, setSearchTerm] = useState('');
@@ -56,10 +56,10 @@ const SelectedTechs = () => {
                       onClick={() => handleSelectTech(tech, provider)}
                       className="bg-slate-800 rounded p-2 hover:bg-slate-600 hover:-translate-y-1 transition-all"
                     >
-                      <img 
-                        src={tech.providers[provider]?.path || defaultIcon} 
-                        alt={tech.name} 
-                        className="w-16 h-16" 
+                      <img
+                        src={tech.providers[provider]?.path || defaultIcon}
+                        alt={tech.name}
+                        className="w-16 h-16"
                       />
                     </button>
                   ))}
@@ -82,10 +82,10 @@ const SelectedTechs = () => {
           selectedTechs.map((tech) => (
             <div key={`${tech.name}-${tech.provider}`} className="flex items-center justify-between mt-8">
               <div className="flex items-center gap-2">
-                <img 
-                  src={tech.providers[tech.provider]?.path || defaultIcon} 
-                  alt={tech.name} 
-                  className="w-16 h-16 mr-2" 
+                <img
+                  src={tech.providers[tech.provider]?.path || defaultIcon}
+                  alt={tech.name}
+                  className="w-16 h-16 mr-2"
                 />
                 <span className='text-slate-200 text-sm font-medium'>{tech.name} ({tech.provider})</span>
               </div>
@@ -98,6 +98,14 @@ const SelectedTechs = () => {
             </div>
           ))
         )}
+
+        <button
+          onClick={() => setCurrentStep(4)}
+          className="text-slate-100 bg-slate-600 hover:bg-slate-700 transition py-2 w-full rounded mt-12"
+        >
+          Next Step
+        </button>
+
       </div>
 
     </div>
