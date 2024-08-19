@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { setGithubUsername } from "@/redux/template/textSlice";
 import toast from 'react-hot-toast'
 
@@ -14,16 +14,20 @@ function GithubAdded() {
 
     const onSave = [githubChange].every(Boolean)
 
-    const handleClick = () => {
+    const handleClick = async () => {
+        try {
+            let response = await fetch(`https://api.github.com/users/${githubChange}`)
+            
+            if (!response.ok) {
+                throw new Error('User not found');
+            }
 
-        let response = fetch(`https://api.github.com/users/${githubChange}`)
-
-        if (!response) {
-            toast.warning("Malasef kullanıcı adı doğru değil.")
-        }
-
-        if (onSave && response) {
-            dispatch(setGithubUsername(githubChange))
+            if (onSave && response.ok) {
+                dispatch(setGithubUsername(githubChange))
+                toast.success("Successfully added")
+            }
+        } catch (error) {
+            toast.error(`Unfortunately, the ${githubChange} is not correct.`)
         }
     }
 
