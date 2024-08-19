@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import templateReducer from '../template/templateSlice';
-import textReducer from "../template/textSlice"
+import informationReducer from "../template/informationSlice"
 
 const store = configureStore({
   reducer: {
     template: templateReducer,
-    texts : textReducer
+    informations : informationReducer
   },
 });
 

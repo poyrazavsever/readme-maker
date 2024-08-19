@@ -6,8 +6,8 @@ const initialState = {
     githubUsername: "",
 }
 
-const textSlice = createSlice({
-    name: "texts",
+const informationSlice = createSlice({
+    name: "information",
     initialState,
     reducers: {
         setText: (state, action) => {
@@ -22,5 +22,5 @@ const textSlice = createSlice({
     }
 })
 
-export const {setName, setText, setGithubUsername} = textSlice.actions
-export default textSlice.reducer
+export const {setName, setText, setGithubUsername} = informationSlice.actions
+export default informationSlice.reducer
