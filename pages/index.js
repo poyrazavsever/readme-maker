@@ -1,7 +1,7 @@
 import TemplateSelector from '../components/TemplateSelector';
 import { Toaster } from 'react-hot-toast';
 
-import SelectedTechs from '@/components/SelectedTechs';
+import SelectedSocialMedia from '@/components/SelectedSocialMedia';
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       </div>
 
       <div className='m-8'>
-        <SelectedTechs />
+        <SelectedSocialMedia />
       </div>
 
       
