@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react";
 
 const initialState = {
     paragraph: "",
     name: "",
     githubUsername: "",
+    image: "",
     techs: [],
     socialMedia: [],
 };
@@ -20,6 +22,9 @@ const informationSlice = createSlice({
         },
         setGithubUsername: (state, action) => {
             state.githubUsername = action.payload;
+        },
+        setImage: (state, action) => {
+            state.image = action.payload;
         },
         addedTech: (state, action) => {
             const techToAdd = action.payload;
@@ -67,6 +72,7 @@ export const {
     setName,
     setText,
     setGithubUsername,
+    setImage,
     addedTech,
     deletedTech,
     addSocialMedia,
