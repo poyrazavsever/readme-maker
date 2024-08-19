@@ -5,7 +5,7 @@ import informationReducer from "../template/informationSlice"
 const store = configureStore({
   reducer: {
     template: templateReducer,
-    informations : informationReducer
+    information : informationReducer
   },
 });
 

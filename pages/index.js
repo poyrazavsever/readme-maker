@@ -1,7 +1,7 @@
 import TemplateSelector from '../components/TemplateSelector';
 import { Toaster } from 'react-hot-toast';
 
-import GithubAdded from '@/components/Text/GithubAdded';
+import SelectedTechs from '@/components/SelectedTechs';
 
 export default function Home() {
   return (
@@ -13,7 +13,11 @@ export default function Home() {
         <TemplateSelector />
       </div>
 
-      <GithubAdded />
+      <div className='m-8'>
+        <SelectedTechs />
+      </div>
+
+      
 
     </div>
   );
