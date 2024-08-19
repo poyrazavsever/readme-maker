@@ -34,10 +34,9 @@ const TemplateSelector = () => {
       <div className='flex flex-wrap gap-8'>
         {templates.map((template) => (
 
-          <div className='group w-32 md:w-40 lg:w-48 shadow shadow-slate-900 '>
+          <div className='group w-32 md:w-40 lg:w-48 shadow shadow-slate-900 ' key={template.id}>
 
             <button
-              key={template.id}
               onClick={() => handleSelect(template.id)}
               className='w-full h-32 md:h-40 lg:h-48 flex items-center justify-center rounded-t-md bg-slate-900 transition-all border border-slate-800'
             >
