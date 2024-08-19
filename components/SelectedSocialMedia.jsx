@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
     addSocialMedia,
@@ -29,18 +29,18 @@ const SelectedSocialMedia = () => {
     };
 
     return (
-        <div className="flex">
+        <div className="flex flex-col md:flex-row">
 
             {/* Sağ Taraf: Sosyal Medya İkonları */}
-            <div className="w-1/2 p-4 border-r">
+            <div className="md:w-1/2 p-4 border-b md:border-r md:border-b-0">
 
                 <h2 className="text-xl font-semibold tracking-wider text-slate-200 mb-4">Social Media</h2>
 
-                <div className="flex flex-wrap gap-12">
+                <div className="flex flex-wrap gap-6 md:gap-12">
                     {socialMediaList.map(icon => (
                         <button
                             key={icon}
-                            className="cursor-pointer bg-slate-800 rounded p-2 w-fit hover:bg-slate-600 hover:-translate-y-1 transition-all"
+                            className="cursor-pointer bg-slate-800 rounded p-2 w-16 h-16 flex items-center justify-center hover:bg-slate-600 hover:-translate-y-1 transition-all"
                             onClick={() => handleIconClick(icon)}
                         >
                             <img
@@ -55,13 +55,13 @@ const SelectedSocialMedia = () => {
             </div>
 
             {/* Sol Taraf: Seçilen Sosyal Medya İkonları ve Linkler */}
-            <div className="px-16 py-4">
+            <div className="md:px-16 py-4">
 
                 <h2 className="text-xl font-semibold tracking-wider text-slate-200 mb-4">Selected Social Media</h2>
 
-                <div className='flex flex-col items-start gap-4 pt-6'>
+                <div className='flex flex-col items-start gap-4'>
                     {socialMedia.map(icon => (
-                        <div key={icon.platform} className="flex items-center gap-4 mb-4">
+                        <div key={icon.platform} className="flex flex-col md:flex-row items-center gap-4 mb-4">
 
                             <img
                                 src={`/SocialMedia/${icon.platform}/default.svg`}
@@ -69,13 +69,15 @@ const SelectedSocialMedia = () => {
                                 className="w-12 h-12"
                             />
 
-                            <input
-                                type="text"
-                                placeholder={`Link for ${icon.platform}`}
-                                value={icon.link || ''}
-                                onChange={(e) => handleLinkChange(icon.platform, e.target.value)}
-                                className="p-2 focus:outline-none py-2 px-4 rounded bg-slate-700 text-slate-100 placeholder:text-slate-500"
-                            />
+                            <div className="flex flex-col w-full md:w-auto">
+                                <input
+                                    type="text"
+                                    placeholder={`Link for ${icon.platform}`}
+                                    value={icon.link || ''}
+                                    onChange={(e) => handleLinkChange(icon.platform, e.target.value)}
+                                    className="p-2 focus:outline-none py-2 px-4 rounded bg-slate-700 text-slate-100 placeholder:text-slate-500"
+                                />
+                            </div>
 
                             <button
                                 onClick={() => handleRemoveIcon(icon.platform)}
