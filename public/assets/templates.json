@@ -1,0 +1,8 @@
+[
+    {
+      "id": "1",
+      "name": "Simple Profile Template",
+      "structure": "<h1 align=\"left\">Hi, I'm [name]</h1>\n\n###\n\n<h3 align=\"left\">Techs</h3>\n\n###\n\n<div align=\"left\">\n  [techs]\n</div>\n\n###\n\n<h4 align=\"left\">Social Media</h4>\n\n###\n\n<div align=\"left\">\n  [socials]\n</div>\n\n###\n\n<div align=\"left\">\n  [stats]\n</div>\n\n###"
+    }
+  ]
+  

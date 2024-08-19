@@ -1,11 +1,13 @@
-import "@/styles/globals.css";
-import { Provider } from "react-redux";
-import { store } from "@/redux/app/store";
+import { Provider } from 'react-redux';
+import store from '../redux/app/store'; // Dosya yolunu güncelledik
+import '../styles/globals.css';
 
-export default function App({ Component, pageProps }) {
-  return(
+function MyApp({ Component, pageProps }) {
+  return (
     <Provider store={store}>
       <Component {...pageProps} />
     </Provider>
   );
 }
+
+export default MyApp;
