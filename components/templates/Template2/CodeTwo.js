@@ -9,7 +9,7 @@ function CodeTwo({setCurrentStep, currentStep}) {
     const name = useSelector((state) => state.information.name);
     const selectedTechs = useSelector((state) => state.information.techs);
     const selectedSocialMedia = useSelector((state) => state.information.socialMedia);
-    const selectedCountry = useSelector((state) => state.information.country);
+    const selectedCountry = useSelector((state) => state.information.countryName);
     const selectedJob = useSelector((state) => state.information.job);
 
     const elementsDiv = `

@@ -8,49 +8,47 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 import BackButton from "./BackButton";
 
-
 function SelectedCountry({ setCurrentStep, currentStep }) {
+    const dispatch = useDispatch();
+    const nextStep = currentStep + 1;
+    const [countryName, setCountryName] = useState("");
 
-    const dispatch = useDispatch()
-
-    const nextStep = currentStep + 1
-
-    const [countryName, setCountryName] = useState("")
-
-    const onSave = [countryName].every(Boolean)
+    const onSave = Boolean(countryName); // True if countryName is not empty
 
     const handleClick = () => {
         if (onSave) {
-            dispatch(setCountry(countryName)) // setCountryName yerine setCountry kullandık
-            toast.success("Successfully added")
-            setCurrentStep(nextStep)
+            console.log("Dispatching Country:", countryName); // Debugging line
+            dispatch(setCountry(countryName));
+            toast.success("Successfully added");
+            setCurrentStep(nextStep);
         }
-    }
+    };
 
-    const handleOnChange = (e) => setCountryName(e.target.value)
+    const onHandleChange = (e) => {
+        setCountryName(e.target.value);
+        console.log("Selected Country:", e.target.value); // Debugging line
+    };
 
     return (
-
         <div className="w-64 flex flex-col items-start gap-4 animate-card">
-
             <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep} />
 
             <div className="flex flex-col items-start gap-3 w-full">
-                <label htmlFor="countryName" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Country</label>
+                <label htmlFor="countryName" className="text-sm uppercase font-semibold tracking-wider text-slate-200">
+                    Your Country
+                </label>
                 <select
-                    type="text"
                     id="countryName"
-                    placeholder="Turkey"
-                    onChange={handleOnChange}
+                    value={countryName} // Ensure value is controlled
+                    onChange={onHandleChange}
                     className="focus:outline-none py-2 px-4 rounded bg-slate-700 text-slate-100 w-full placeholder:text-slate-500"
                 >
-                    <option value=""></option>
-                    {country.map((country) => (
-                        <option key={country.url} value={country.name}>
-                            {country.name}
+                    <option value="" disabled>Select a country</option>
+                    {country.map((c) => (
+                        <option key={c.alpha3} value={c.name}>
+                            {c.name}
                         </option>
                     ))}
-
                 </select>
             </div>
 
@@ -62,9 +60,8 @@ function SelectedCountry({ setCurrentStep, currentStep }) {
                 <IoAddCircleOutline className="text-slate-100 text-lg" />
                 <span className="uppercase font-semibold text-slate-200">Add</span>
             </button>
-
         </div>
-    )
+    );
 }
 
 export default SelectedCountry;

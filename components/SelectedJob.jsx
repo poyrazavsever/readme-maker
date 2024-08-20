@@ -46,7 +46,7 @@ function SelectedJob({ setCurrentStep, currentStep }) {
                 >
                     <option value=""></option>
                     {jobs.map((job) => (
-                        <option key={job.name} value={job.name}>
+                        <option key={job.id} value={job.name}>
                             {job.name}
                         </option>
                     ))}
