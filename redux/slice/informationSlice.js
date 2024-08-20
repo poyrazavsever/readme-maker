@@ -4,6 +4,7 @@ const initialState = {
     paragraph: "",
     name: "",
     githubUsername: "",
+    countryName: "",
     image: "",
     techs: [],
     socialMedia: [],
@@ -18,6 +19,9 @@ const informationSlice = createSlice({
         },
         setName: (state, action) => {
             state.name = action.payload;
+        },
+        setCountry: (state, action) => {
+            state.countryName = action.payload
         },
         setGithubUsername: (state, action) => {
             state.githubUsername = action.payload;
@@ -76,7 +80,8 @@ export const {
     deletedTech,
     addSocialMedia,
     removeSocialMedia,
-    updateSocialMediaLink
+    updateSocialMediaLink,
+    setCountry
 } = informationSlice.actions;
 
 export default informationSlice.reducer;
