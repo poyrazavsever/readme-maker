@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import Template1 from '@/components/templates/Template1/Template1';
 import Template2 from '@/components/templates/Template2/Template2';
 import Template3 from '@/components/templates/Template3/Template3';
+import Template4 from '@/components/templates/Template4/Template4';
 
 export default function Home() {
 
@@ -32,6 +33,9 @@ export default function Home() {
       }
       {selectedTemplate == 3 && 
         <Template3 />
+      }
+      {selectedTemplate == 4 && 
+        <Template4 />
       }
 
     </div>

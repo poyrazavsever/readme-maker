@@ -5,6 +5,7 @@ import { IoCaretBackCircle } from "react-icons/io5";
 import Preview1 from '@/components/templates/Template1/Preview1';
 import Preview2 from '@/components/templates/Template2/Preview2';
 import Preview3 from '@/components/templates/Template3/Preview3';
+import Preview4 from '@/components/templates/Template4/Preview4';
 
 function Preview() {
     const router = useRouter()
@@ -35,6 +36,9 @@ function Preview() {
                 }
                 {id == 3 &&
                     <Preview3 />
+                }
+                {id == 4 &&
+                    <Preview4 />
                 }
             </div>
 

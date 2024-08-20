@@ -25,7 +25,7 @@ function ImageAdded({ setCurrentStep, currentStep }) {
 
     return (
 
-        <div className="w-64 h-full flex flex-col items-start gap-4 animate-card">
+        <div className="w-64 h-full flex flex-col items-start justify-center gap-4 animate-card">
 
             <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep} />
 
