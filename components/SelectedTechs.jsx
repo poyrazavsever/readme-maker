@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { tech_icons } from '../public/assets/tech-icons'; // Veriyi içe aktarıyoruz
 import { addedTech, deletedTech } from '../redux/slice/informationSlice'; // Redux slice'ını içe aktarıyoruz
 import BackButton from './BackButton';
@@ -8,7 +8,6 @@ const defaultIcon = '/path/to/default/icon.png'; // Varsayılan görselin yolu
 
 const SelectedTechs = ({ setCurrentStep, currentStep }) => {
   const dispatch = useDispatch();
-  const selectedTechs = useSelector((state) => state.information.techs); // Redux'tan seçilen teknolojileri alıyoruz
   const [searchTerm, setSearchTerm] = useState('');
   const nextStep = currentStep + 1
 
@@ -16,7 +15,6 @@ const SelectedTechs = ({ setCurrentStep, currentStep }) => {
   const handleSelectTech = (tech, provider) => {
     const techToAdd = { ...tech, provider };
     dispatch(addedTech(techToAdd));
-    console.log(techToAdd)
   };
 
   // Teknolojiyi kaldırma işlemi

@@ -17,7 +17,6 @@ function SelectedCountry({ setCurrentStep, currentStep }) {
 
     const handleClick = () => {
         if (onSave) {
-            console.log("Dispatching Country:", countryName); // Debugging line
             dispatch(setCountry(countryName));
             toast.success("Successfully added");
             setCurrentStep(nextStep);
@@ -26,7 +25,6 @@ function SelectedCountry({ setCurrentStep, currentStep }) {
 
     const onHandleChange = (e) => {
         setCountryName(e.target.value);
-        console.log("Selected Country:", e.target.value); // Debugging line
     };
 
     return (
