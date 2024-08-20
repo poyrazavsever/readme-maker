@@ -14,6 +14,7 @@ const SelectedTechs = ({ setCurrentStep }) => {
   const handleSelectTech = (tech, provider) => {
     const techToAdd = { ...tech, provider };
     dispatch(addedTech(techToAdd));
+    console.log(techToAdd)
   };
 
   // Teknolojiyi kaldırma işlemi

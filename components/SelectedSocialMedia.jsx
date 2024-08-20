@@ -28,6 +28,8 @@ const SelectedSocialMedia = ({setCurrentStep}) => {
         dispatch(removeSocialMedia(icon));
     };
 
+    console.log(socialMedia)
+
     return (
         <div className="flex flex-col md:flex-row">
 

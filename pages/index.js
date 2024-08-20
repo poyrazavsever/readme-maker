@@ -3,7 +3,7 @@ import { Toaster } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 
 // Templates
-import Template1 from '@/components/templates/Template1';
+import Template1 from '@/components/templates/Template1/Template1';
 
 export default function Home() {
 
