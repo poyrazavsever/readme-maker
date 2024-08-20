@@ -8,6 +8,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 function TextAdded({setCurrentStep, currentStep}) {
 
     const dispatch = useDispatch()
+    const nextStep = currentStep + 1
 
     const [textChange, setTextChange] = useState("")
 
@@ -16,7 +17,7 @@ function TextAdded({setCurrentStep, currentStep}) {
     const handleClick = () => {
         if(onSave) {
             dispatch(setText(textChange))
-            setCurrentStep(currentStep++)
+            setCurrentStep(nextStep)
         }
     }
 

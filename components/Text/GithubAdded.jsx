@@ -10,6 +10,8 @@ function GithubAdded({setCurrentStep ,currentStep}) {
 
     const dispatch = useDispatch()
 
+    const nextStep = currentStep + 1
+
     const [githubChange, setGithubChange] = useState("")
 
     const onSave = [githubChange].every(Boolean)
@@ -25,7 +27,7 @@ function GithubAdded({setCurrentStep ,currentStep}) {
             if (onSave && response.ok) {
                 dispatch(setGithubUsername(githubChange))
                 toast.success("Successfully added")
-                setCurrentStep(currentStep++)
+                setCurrentStep(nextStep)
             }
         } catch (error) {
             toast.error(`Unfortunately, the ${githubChange} is not correct.`)

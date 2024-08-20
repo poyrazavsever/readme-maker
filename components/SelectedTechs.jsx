@@ -9,6 +9,7 @@ const SelectedTechs = ({ setCurrentStep, currentStep}) => {
   const dispatch = useDispatch();
   const selectedTechs = useSelector((state) => state.information.techs); // Redux'tan seçilen teknolojileri alıyoruz
   const [searchTerm, setSearchTerm] = useState('');
+  const nextStep = currentStep + 1
 
   // Teknoloji seçme işlemi
   const handleSelectTech = (tech, provider) => {
@@ -101,7 +102,7 @@ const SelectedTechs = ({ setCurrentStep, currentStep}) => {
         )}
 
         <button
-          onClick={() => setCurrentStep(currentStep++)}
+          onClick={() => setCurrentStep(nextStep)}
           className="text-slate-100 bg-slate-600 hover:bg-slate-700 transition py-2 w-full rounded mt-12"
         >
           Next Step

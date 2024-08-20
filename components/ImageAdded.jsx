@@ -9,6 +9,8 @@ function ImageAdded({setCurrentStep, currentStep}) {
 
     const dispatch = useDispatch()
 
+    const nextStep = currentStep + 1
+
     const [imageChange, setImageChange] = useState("")
 
     const onSave = [imageChange].every(Boolean)
@@ -16,7 +18,7 @@ function ImageAdded({setCurrentStep, currentStep}) {
     const handleClick = () => {
         if(onSave) {
             dispatch(setImage(imageChange))
-            setCurrentStep(currentStep++)
+            setCurrentStep(nextStep)
         }
     }
 

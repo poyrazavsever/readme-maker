@@ -10,6 +10,8 @@ function NameAdded({setCurrentStep, currentStep}) {
 
     const dispatch = useDispatch()
 
+    const nextStep = currentStep + 1
+
     const [nameChange, setNameChange] = useState("")
 
     const onSave = [nameChange].every(Boolean)
@@ -17,7 +19,7 @@ function NameAdded({setCurrentStep, currentStep}) {
     const handleClick = () => {
         if(onSave) {
             dispatch(setName(nameChange))
-            setCurrentStep(currentStep++)
+            setCurrentStep(nextStep)
             toast.success("Successfully added")
         }
     }

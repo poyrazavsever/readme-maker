@@ -9,12 +9,14 @@ import {
 const socialMediaList = [
     'behance', 'codepen', 'discord', 'facebook', 'gmail',
     'instagram', 'linkedin', 'medium', 'stackoverflow',
-    'telegram', 'twitch', 'twitter', 'whatsapp', 'youtube'
+    'telegram', 'twitch', 'twitter', 'whatsapp', 'youtube', 'github'
 ];
 
 const SelectedSocialMedia = ({setCurrentStep, currentStep}) => {
     const dispatch = useDispatch();
     const socialMedia = useSelector((state) => state.information.socialMedia);
+    const nextStep = currentStep + 1
+
 
     const handleIconClick = (icon) => {
         dispatch(addSocialMedia({ platform: icon, link: '' }));
@@ -95,7 +97,7 @@ const SelectedSocialMedia = ({setCurrentStep, currentStep}) => {
                     ))}
 
                     <button
-                        onClick={() => setCurrentStep(currentStep++)}
+                        onClick={() => setCurrentStep(nextStep)}
                         className="text-slate-100 bg-slate-600 hover:bg-slate-700 transition py-2 px-4 rounded"
                     >
                         Done
