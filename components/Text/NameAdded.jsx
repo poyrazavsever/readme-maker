@@ -5,8 +5,9 @@ import { setName } from "@/redux/slice/informationSlice";
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
+import BackButton from "../BackButton";
 
-function NameAdded({setCurrentStep, currentStep}) {
+function NameAdded({ setCurrentStep, currentStep }) {
 
     const dispatch = useDispatch()
 
@@ -17,7 +18,7 @@ function NameAdded({setCurrentStep, currentStep}) {
     const onSave = [nameChange].every(Boolean)
 
     const handleClick = () => {
-        if(onSave) {
+        if (onSave) {
             dispatch(setName(nameChange))
             setCurrentStep(nextStep)
             toast.success("Successfully added")
@@ -27,6 +28,8 @@ function NameAdded({setCurrentStep, currentStep}) {
     return (
 
         <div className="w-64 flex flex-col items-start gap-4 animate-card">
+
+            <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep} />
 
             <div className="flex flex-col items-start gap-3 w-full">
                 <label htmlFor="yourName" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Name</label>

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { tech_icons } from '../public/assets/tech-icons'; // Veriyi içe aktarıyoruz
 import { addedTech, deletedTech } from '../redux/slice/informationSlice'; // Redux slice'ını içe aktarıyoruz
+import BackButton from './BackButton';
 
 const defaultIcon = '/path/to/default/icon.png'; // Varsayılan görselin yolu
 
-const SelectedTechs = ({ setCurrentStep, currentStep}) => {
+const SelectedTechs = ({ setCurrentStep, currentStep }) => {
   const dispatch = useDispatch();
   const selectedTechs = useSelector((state) => state.information.techs); // Redux'tan seçilen teknolojileri alıyoruz
   const [searchTerm, setSearchTerm] = useState('');
@@ -32,8 +33,10 @@ const SelectedTechs = ({ setCurrentStep, currentStep}) => {
   return (
     <div className="h-full flex flex-col md:flex-row animate-card">
 
+      <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep} />
+
       {/* Sol taraf - Tüm teknolojiler */}
-      <div className="w-full md:w-1/2 py-4 border-r border-slate-600 overflow-y-auto pr-4 md:pr-12 scrollbar scrollbar-track-slate-900 scrollbar-thumb-slate-400 whitespace-pre-wrap">
+      <div className="w-full md:w-1/2 py-4 border-r border-slate-600 overflow-y-auto pr-4 md:pr-12 scrollbar scrollbar-track-slate-900 scrollbar-thumb-slate-400 whitespace-pre-wrap pt-24">
         <h2 className="text-xl font-semibold tracking-wider text-slate-200 mb-4">All Technologies</h2>
 
         <input
@@ -73,7 +76,7 @@ const SelectedTechs = ({ setCurrentStep, currentStep}) => {
       </div>
 
       {/* Sağ taraf - Seçilen teknolojiler */}
-      <div className="w-full md:w-1/2 py-4 px-8 md:pl-12 overflow-y-auto scrollbar scrollbar-track-slate-900 scrollbar-thumb-slate-400 whitespace-pre-wrap">
+      <div className="w-full md:w-1/2 py-4 px-8 md:pl-12 overflow-y-auto scrollbar scrollbar-track-slate-900 scrollbar-thumb-slate-400 whitespace-pre-wrap pt-24">
         <h2 className="text-xl font-semibold tracking-wider text-slate-200 mb-4">
           Selected Technologies
         </h2>

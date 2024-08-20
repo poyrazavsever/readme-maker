@@ -4,8 +4,9 @@ import { setText } from "@/redux/slice/informationSlice";
 
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
+import BackButton from "../BackButton";
 
-function TextAdded({setCurrentStep, currentStep}) {
+function TextAdded({ setCurrentStep, currentStep }) {
 
     const dispatch = useDispatch()
     const nextStep = currentStep + 1
@@ -15,7 +16,7 @@ function TextAdded({setCurrentStep, currentStep}) {
     const onSave = [textChange].every(Boolean)
 
     const handleClick = () => {
-        if(onSave) {
+        if (onSave) {
             dispatch(setText(textChange))
             setCurrentStep(nextStep)
         }
@@ -24,6 +25,8 @@ function TextAdded({setCurrentStep, currentStep}) {
     return (
 
         <div className="w-64 flex flex-col items-start gap-4 animate-card">
+
+            <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep} />
 
             <div className="flex flex-col items-start gap-3 w-full">
                 <label htmlFor="yourText" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Text</label>

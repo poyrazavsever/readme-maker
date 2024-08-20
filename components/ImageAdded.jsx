@@ -4,8 +4,9 @@ import { setImage } from "@/redux/slice/informationSlice";
 
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
+import BackButton from "./BackButton";
 
-function ImageAdded({setCurrentStep, currentStep}) {
+function ImageAdded({ setCurrentStep, currentStep }) {
 
     const dispatch = useDispatch()
 
@@ -16,7 +17,7 @@ function ImageAdded({setCurrentStep, currentStep}) {
     const onSave = [imageChange].every(Boolean)
 
     const handleClick = () => {
-        if(onSave) {
+        if (onSave) {
             dispatch(setImage(imageChange))
             setCurrentStep(nextStep)
         }
@@ -25,6 +26,8 @@ function ImageAdded({setCurrentStep, currentStep}) {
     return (
 
         <div className="w-64 h-full flex flex-col items-start gap-4 animate-card">
+
+            <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep} />
 
             <div className="flex flex-col items-start gap-3 w-full">
                 <label htmlFor="yourImage" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Image Link</label>

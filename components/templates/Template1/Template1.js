@@ -27,7 +27,7 @@ const Template1 = () => {
             }
 
             {currentStep == 5 &&
-                <CodeOne />
+                <CodeOne setCurrentStep={setCurrentStep} currentStep={currentStep}/>
             }
 
         </div>

@@ -2,8 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { FaRegCopy } from "react-icons/fa6";
 import toast from 'react-hot-toast';
+import BackButton from '@/components/BackButton';
 
-function CodeOne() {
+function CodeOne({setCurrentStep, currentStep}) {
     const githubUsername = useSelector((state) => state.information.githubUsername);
     const name = useSelector((state) => state.information.name);
     const selectedTechs = useSelector((state) => state.information.techs);
@@ -53,6 +54,8 @@ ${selectedSocialMedia.map(socialmedia => `
 
     return (
         <div className="max-w-lg mx-auto border border-gray-300 rounded-lg bg-gray-100 p-2 overflow-hidden">
+
+            <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep}/>
 
             <div className='flex items-center justify-between'>
                 <h4 className="text-sm uppercase font-bold tracking-wider text-slate-800 py-2">Your code</h4>

@@ -5,6 +5,7 @@ import toast from 'react-hot-toast'
 
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
+import BackButton from "../BackButton";
 
 function GithubAdded({setCurrentStep ,currentStep}) {
 
@@ -37,6 +38,8 @@ function GithubAdded({setCurrentStep ,currentStep}) {
     return (
 
         <div className="w-64 flex flex-col items-start gap-4 animate-card">
+
+            <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep}/>
 
             <div className="flex flex-col items-start gap-3 w-full">
                 <label htmlFor="yourName" className="text-sm uppercase font-semibold tracking-wider text-slate-200"> Github Username</label>

@@ -5,6 +5,7 @@ import {
     removeSocialMedia,
     updateSocialMediaLink
 } from '../redux/slice/informationSlice'; // Redux slice'ınıza uygun yolu kullanın
+import BackButton from './BackButton';
 
 const socialMediaList = [
     'behance', 'codepen', 'discord', 'facebook', 'gmail',
@@ -12,7 +13,7 @@ const socialMediaList = [
     'telegram', 'twitch', 'twitter', 'whatsapp', 'youtube', 'github'
 ];
 
-const SelectedSocialMedia = ({setCurrentStep, currentStep}) => {
+const SelectedSocialMedia = ({ setCurrentStep, currentStep }) => {
     const dispatch = useDispatch();
     const socialMedia = useSelector((state) => state.information.socialMedia);
     const nextStep = currentStep + 1
@@ -34,6 +35,8 @@ const SelectedSocialMedia = ({setCurrentStep, currentStep}) => {
 
     return (
         <div className="h-full py-32 flex flex-col md:flex-row animate-card">
+
+            <BackButton setCurrentStep={setCurrentStep} currentStep={currentStep} />
 
             {/* Sağ Taraf: Sosyal Medya İkonları */}
             <div className="md:w-1/2 p-4 border-b md:border-r md:border-b-0">
@@ -66,7 +69,7 @@ const SelectedSocialMedia = ({setCurrentStep, currentStep}) => {
                 <div className='flex flex-col items-start gap-4'>
                     {socialMedia.map(icon => (
                         <div key={icon.platform} className="flex flex-col md:flex-row items-center gap-4 mb-4">
-                            
+
                             <div className='bg-slate-800 rounded p-2 w-14 h-14 flex items-center justify-center'>
                                 <img
                                     src={`/SocialMedia/${icon.platform}/default.svg`}
@@ -74,7 +77,7 @@ const SelectedSocialMedia = ({setCurrentStep, currentStep}) => {
                                     className="w-12 h-12 "
                                 />
                             </div>
-                           
+
 
                             <div className="flex flex-col w-full md:w-auto">
                                 <input
