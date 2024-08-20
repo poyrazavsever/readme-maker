@@ -4,7 +4,7 @@ const Preview1 = () => {
       <h2 className="text-3xl font-semibold text-slate-100 py-4">Hi! I'm Poyraz</h2>
 
       <div className="py-4">
-        <img src="https://visitor-badge.laobi.icu/badge?page_id=poyrazavsever.poyrazavsever&" />
+        <img src="https://visitor-badge.laobi.icu/badge?page_id=poyrazavsever.poyrazavsever&" alt="visitor badge for preview"/>
       </div>
 
       <div className="flex flex-col items-start gap-4 py-8">
