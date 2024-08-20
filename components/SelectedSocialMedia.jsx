@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {
     addSocialMedia,
     removeSocialMedia,
@@ -15,6 +15,7 @@ const socialMediaList = [
 
 const SelectedSocialMedia = ({ setCurrentStep, currentStep }) => {
     const dispatch = useDispatch();
+    const socialMedia = useSelector((state) => state.information.socialMedia);
     const nextStep = currentStep + 1
 
 
@@ -29,6 +30,8 @@ const SelectedSocialMedia = ({ setCurrentStep, currentStep }) => {
     const handleRemoveIcon = (icon) => {
         dispatch(removeSocialMedia(icon));
     };
+
+    console.log(socialMedia)
 
     return (
         <div className="h-full py-32 flex flex-col md:flex-row animate-card">
