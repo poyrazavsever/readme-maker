@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import Template1 from '@/components/templates/Template1/Template1';
 import Template2 from '@/components/templates/Template2/Template2';
 import SelectedCountry from '@/components/SelectedCountry';
+import SelectedJob from '@/components/SelectedJob';
 
 export default function Home() {
 
@@ -31,7 +32,7 @@ export default function Home() {
         <Template2 />
       }
 
-      <SelectedCountry />
+      <SelectedJob />
 
     </div>
   );
