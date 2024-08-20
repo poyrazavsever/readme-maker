@@ -29,10 +29,10 @@ const SelectedTechs = ({ setCurrentStep }) => {
   );
 
   return (
-    <div className="flex flex-col md:flex-row">
+    <div className="h-full flex flex-col md:flex-row animate-card">
 
       {/* Sol taraf - Tüm teknolojiler */}
-      <div className="w-full md:w-1/2 py-4 border-r border-slate-600 overflow-y-auto pr-4 md:pr-12">
+      <div className="w-full md:w-1/2 py-4 border-r border-slate-600 overflow-y-auto pr-4 md:pr-12 scrollbar scrollbar-track-slate-900 scrollbar-thumb-slate-400 whitespace-pre-wrap">
         <h2 className="text-xl font-semibold tracking-wider text-slate-200 mb-4">All Technologies</h2>
 
         <input
@@ -72,7 +72,7 @@ const SelectedTechs = ({ setCurrentStep }) => {
       </div>
 
       {/* Sağ taraf - Seçilen teknolojiler */}
-      <div className="w-full md:w-1/2 py-4 pl-4 md:pl-12 overflow-y-auto">
+      <div className="w-full md:w-1/2 py-4 px-8 md:pl-12 overflow-y-auto scrollbar scrollbar-track-slate-900 scrollbar-thumb-slate-400 whitespace-pre-wrap">
         <h2 className="text-xl font-semibold tracking-wider text-slate-200 mb-4">
           Selected Technologies
         </h2>

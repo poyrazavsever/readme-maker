@@ -21,7 +21,7 @@ function ImageAdded() {
 
     return (
 
-        <div className="w-64 flex flex-col items-start gap-4">
+        <div className="w-64 h-full flex flex-col items-start gap-4 animate-card">
 
             <div className="flex flex-col items-start gap-3 w-full">
                 <label htmlFor="yourImage" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Image Link</label>

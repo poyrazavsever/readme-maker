@@ -4,6 +4,7 @@ import { setName } from "@/redux/slice/informationSlice";
 
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 function NameAdded({setCurrentStep}) {
 
@@ -17,12 +18,13 @@ function NameAdded({setCurrentStep}) {
         if(onSave) {
             dispatch(setName(nameChange))
             setCurrentStep(3)
+            toast.success("Successfully added")
         }
     }
 
     return (
 
-        <div className="w-64 flex flex-col items-start gap-4">
+        <div className="w-64 flex flex-col items-start gap-4 animate-card">
 
             <div className="flex flex-col items-start gap-3 w-full">
                 <label htmlFor="yourName" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Name</label>

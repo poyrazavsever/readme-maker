@@ -12,7 +12,7 @@ export default function Home() {
   console.log(selectedTemplate)
 
   return (
-    <div className="min-h-screen bg-gray-950 p-4">
+    <div className="h-screen bg-gray-950 p-4">
 
       <Toaster />
 

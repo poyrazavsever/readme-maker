@@ -31,7 +31,7 @@ const SelectedSocialMedia = ({setCurrentStep}) => {
     console.log(socialMedia)
 
     return (
-        <div className="flex flex-col md:flex-row">
+        <div className="h-full py-32 flex flex-col md:flex-row animate-card">
 
             {/* Sağ Taraf: Sosyal Medya İkonları */}
             <div className="md:w-1/2 p-4 border-b md:border-r md:border-b-0">
@@ -64,12 +64,15 @@ const SelectedSocialMedia = ({setCurrentStep}) => {
                 <div className='flex flex-col items-start gap-4'>
                     {socialMedia.map(icon => (
                         <div key={icon.platform} className="flex flex-col md:flex-row items-center gap-4 mb-4">
-
-                            <img
-                                src={`/SocialMedia/${icon.platform}/default.svg`}
-                                alt={icon.platform}
-                                className="w-12 h-12"
-                            />
+                            
+                            <div className='bg-slate-800 rounded p-2 w-14 h-14 flex items-center justify-center'>
+                                <img
+                                    src={`/SocialMedia/${icon.platform}/default.svg`}
+                                    alt={icon.platform}
+                                    className="w-12 h-12 "
+                                />
+                            </div>
+                           
 
                             <div className="flex flex-col w-full md:w-auto">
                                 <input

@@ -19,7 +19,7 @@ function GithubAdded({setCurrentStep}) {
             let response = await fetch(`https://api.github.com/users/${githubChange}`)
             
             if (!response.ok) {
-                throw new Error('User not found');
+                toast.error('User not found');
             }
 
             if (onSave && response.ok) {
@@ -34,7 +34,7 @@ function GithubAdded({setCurrentStep}) {
 
     return (
 
-        <div className="w-64 flex flex-col items-start gap-4">
+        <div className="w-64 flex flex-col items-start gap-4 animate-card">
 
             <div className="flex flex-col items-start gap-3 w-full">
                 <label htmlFor="yourName" className="text-sm uppercase font-semibold tracking-wider text-slate-200"> Github Username</label>

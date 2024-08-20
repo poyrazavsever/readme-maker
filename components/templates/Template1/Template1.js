@@ -11,7 +11,7 @@ const Template1 = () => {
     const [currentStep, setCurrentStep] = useState(1);
 
     return (
-        <div>
+        <div className='h-full flex items-center justify-center'>
 
             {currentStep == 1 &&
                 <GithubAdded setCurrentStep={setCurrentStep}/>
