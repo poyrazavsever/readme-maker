@@ -4,6 +4,8 @@ import { useSelector } from 'react-redux';
 
 // Templates
 import Template1 from '@/components/templates/Template1/Template1';
+import Template2 from '@/components/templates/Template2/Template2';
+import SelectedCountry from '@/components/SelectedCountry';
 
 export default function Home() {
 
@@ -25,6 +27,11 @@ export default function Home() {
       {selectedTemplate == 1 && 
         <Template1 />
       }
+      {selectedTemplate == 2 && 
+        <Template2 />
+      }
+
+      <SelectedCountry />
 
     </div>
   );
