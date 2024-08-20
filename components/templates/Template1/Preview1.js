@@ -1,7 +1,9 @@
+import he from "he"
+
 const Preview1 = () => {
   return (
     <div className="h-full p-6 bg-gray-900 rounded-lg border border-gray-700 shadow-lg">
-      <h2 className="text-3xl font-semibold text-slate-100 py-4">Hi! I'm Poyraz</h2>
+      <h2 className="text-3xl font-semibold text-slate-100 py-4">Hi! I&apos;m Poyraz</h2>
 
       <div className="py-4">
         <img src="https://visitor-badge.laobi.icu/badge?page_id=poyrazavsever.poyrazavsever&" alt="visitor badge for preview"/>

@@ -21,8 +21,8 @@ const Preview1 = () => {
 
   return (
     <div className="h-full p-6 bg-gray-900 rounded-lg border border-gray-700 shadow-lg">
-      <h2 className="text-3xl font-semibold text-slate-100 py-4">Hello everyone, I'm {name}</h2>
-      <p className="text-slate-200">I'm from {selectedCountry} and I'm a Front-End Developer.</p>
+      <h2 className="text-3xl font-semibold text-slate-100 py-4">Hello everyone, I&apos;m {name}</h2>
+      <p className="text-slate-200">I&apos;m from {selectedCountry} and I&apos;m a Front-End Developer.</p>
 
       <div className="py-4">
         <img src={`https://visitor-badge.laobi.icu/badge?page_id=${githubUsername}.${githubUsername}&`} alt="Visitor Badge" style={{ borderRadius: '8px' }} />

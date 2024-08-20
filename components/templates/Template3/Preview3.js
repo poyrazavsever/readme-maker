@@ -23,8 +23,8 @@ const Preview3 = () => {
 
   return (
     <div className="h-full p-6 bg-gray-900 rounded-lg border border-gray-700 shadow-lg">
-      <h2 className="text-3xl font-semibold text-slate-100 py-4">Hello, I'm {name}</h2>
-      <h4 className="text-slate-200">I'm from {selectedCountry} and work as a Front-End Developer.</h4>
+      <h2 className="text-3xl font-semibold text-slate-100 py-4">Hello, I&apos;m {name}</h2>
+      <h4 className="text-slate-200">I&apos;m from {selectedCountry} and work as a Front-End Developer.</h4>
 
       <div className="py-4">
         <img src={`https://avatars.githubusercontent.com/${githubUsername}`} alt={`${name}'s profile`} width="100" height="100" style={{ borderRadius: '50%', border: '2px solid #1F2937' }} />
@@ -32,7 +32,7 @@ const Preview3 = () => {
 
       <section className="py-8">
         <h3 className="text-2xl font-semibold text-slate-200">Bio</h3>
-        <p className="text-slate-300">I'm a passionate Front-End Developer from {selectedCountry}. Skilled in various technologies and always eager to learn more.</p>
+        <p className="text-slate-300">I&apos;m a passionate Front-End Developer from {selectedCountry}. Skilled in various technologies and always eager to learn more.</p>
       </section>
 
       <section className="py-8">
