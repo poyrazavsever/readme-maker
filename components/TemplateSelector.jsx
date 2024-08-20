@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { selectTemplate } from '../redux/slice/templateSlice';
+import { useState, useEffect, use } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectTemplate, setPreview } from '../redux/slice/templateSlice';
 
 // Icons
 import { FaEye } from "react-icons/fa";
+
 
 const TemplateSelector = () => {
 
@@ -22,6 +23,7 @@ const TemplateSelector = () => {
   const handleSelect = (id) => {
     dispatch(selectTemplate(id));
   };
+
 
   return (
     <div className='flex flex-col items-start gap-12'>
