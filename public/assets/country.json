@@ -1,4 +1,4 @@
-export const country = [
+[
   {
     "url": "/wiki/Afghanistan",
     "alpha3": "AFG",
