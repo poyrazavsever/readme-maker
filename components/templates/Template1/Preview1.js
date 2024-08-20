@@ -1,5 +1,3 @@
-import he from "he"
-
 const Preview1 = () => {
   return (
     <div className="h-full p-6 bg-gray-900 rounded-lg border border-gray-700 shadow-lg">
