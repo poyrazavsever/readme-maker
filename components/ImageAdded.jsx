@@ -5,7 +5,7 @@ import { setImage } from "@/redux/slice/informationSlice";
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
 
-function ImageAdded() {
+function ImageAdded({setCurrentStep, currentStep}) {
 
     const dispatch = useDispatch()
 
@@ -16,6 +16,7 @@ function ImageAdded() {
     const handleClick = () => {
         if(onSave) {
             dispatch(setImage(imageChange))
+            setCurrentStep(currentStep++)
         }
     }
 

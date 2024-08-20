@@ -6,7 +6,7 @@ import { setName } from "@/redux/slice/informationSlice";
 import { IoAddCircleOutline } from "react-icons/io5";
 import toast from "react-hot-toast";
 
-function NameAdded({setCurrentStep}) {
+function NameAdded({setCurrentStep, currentStep}) {
 
     const dispatch = useDispatch()
 
@@ -17,7 +17,7 @@ function NameAdded({setCurrentStep}) {
     const handleClick = () => {
         if(onSave) {
             dispatch(setName(nameChange))
-            setCurrentStep(3)
+            setCurrentStep(currentStep++)
             toast.success("Successfully added")
         }
     }

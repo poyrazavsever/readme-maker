@@ -5,7 +5,7 @@ import { setText } from "@/redux/slice/informationSlice";
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
 
-function TextAdded() {
+function TextAdded({setCurrentStep, currentStep}) {
 
     const dispatch = useDispatch()
 
@@ -16,6 +16,7 @@ function TextAdded() {
     const handleClick = () => {
         if(onSave) {
             dispatch(setText(textChange))
+            setCurrentStep(currentStep++)
         }
     }
 

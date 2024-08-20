@@ -12,7 +12,7 @@ const socialMediaList = [
     'telegram', 'twitch', 'twitter', 'whatsapp', 'youtube'
 ];
 
-const SelectedSocialMedia = ({setCurrentStep}) => {
+const SelectedSocialMedia = ({setCurrentStep, currentStep}) => {
     const dispatch = useDispatch();
     const socialMedia = useSelector((state) => state.information.socialMedia);
 
@@ -95,7 +95,7 @@ const SelectedSocialMedia = ({setCurrentStep}) => {
                     ))}
 
                     <button
-                        onClick={() => setCurrentStep(5)}
+                        onClick={() => setCurrentStep(currentStep++)}
                         className="text-slate-100 bg-slate-600 hover:bg-slate-700 transition py-2 px-4 rounded"
                     >
                         Done

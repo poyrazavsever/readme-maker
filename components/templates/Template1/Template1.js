@@ -14,16 +14,16 @@ const Template1 = () => {
         <div className='h-full flex items-center justify-center'>
 
             {currentStep == 1 &&
-                <GithubAdded setCurrentStep={setCurrentStep}/>
+                <GithubAdded setCurrentStep={setCurrentStep} currentStep={currentStep}/>
             }
             {currentStep == 2 &&
-                <NameAdded setCurrentStep={setCurrentStep}/>
+                <NameAdded setCurrentStep={setCurrentStep} currentStep={currentStep}/>
             }
             {currentStep == 3 &&
-                <SelectedTechs setCurrentStep={setCurrentStep}/>
+                <SelectedTechs setCurrentStep={setCurrentStep} currentStep={currentStep}/>
             }
             {currentStep == 4 &&
-                <SelectedSocialMedia setCurrentStep={setCurrentStep}/>
+                <SelectedSocialMedia setCurrentStep={setCurrentStep} currentStep={currentStep}/>
             }
 
             {currentStep == 5 &&

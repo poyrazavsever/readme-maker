@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 // Icon
 import { IoAddCircleOutline } from "react-icons/io5";
 
-function GithubAdded({setCurrentStep}) {
+function GithubAdded({setCurrentStep ,currentStep}) {
 
     const dispatch = useDispatch()
 
@@ -25,7 +25,7 @@ function GithubAdded({setCurrentStep}) {
             if (onSave && response.ok) {
                 dispatch(setGithubUsername(githubChange))
                 toast.success("Successfully added")
-                setCurrentStep(2)
+                setCurrentStep(currentStep++)
             }
         } catch (error) {
             toast.error(`Unfortunately, the ${githubChange} is not correct.`)

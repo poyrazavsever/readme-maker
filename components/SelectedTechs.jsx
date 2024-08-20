@@ -5,7 +5,7 @@ import { addedTech, deletedTech } from '../redux/slice/informationSlice'; // Red
 
 const defaultIcon = '/path/to/default/icon.png'; // Varsayılan görselin yolu
 
-const SelectedTechs = ({ setCurrentStep }) => {
+const SelectedTechs = ({ setCurrentStep, currentStep}) => {
   const dispatch = useDispatch();
   const selectedTechs = useSelector((state) => state.information.techs); // Redux'tan seçilen teknolojileri alıyoruz
   const [searchTerm, setSearchTerm] = useState('');
@@ -101,7 +101,7 @@ const SelectedTechs = ({ setCurrentStep }) => {
         )}
 
         <button
-          onClick={() => setCurrentStep(4)}
+          onClick={() => setCurrentStep(currentStep++)}
           className="text-slate-100 bg-slate-600 hover:bg-slate-700 transition py-2 w-full rounded mt-12"
         >
           Next Step
