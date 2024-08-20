@@ -32,8 +32,6 @@ export default function Home() {
         <Template2 />
       }
 
-      <SelectedJob />
-
     </div>
   );
 }

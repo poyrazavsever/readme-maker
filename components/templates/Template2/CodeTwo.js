@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use } from 'react';
 import { useSelector } from 'react-redux';
 import { FaRegCopy } from "react-icons/fa6";
 import toast from 'react-hot-toast';
@@ -9,39 +9,35 @@ function CodeTwo({setCurrentStep, currentStep}) {
     const name = useSelector((state) => state.information.name);
     const selectedTechs = useSelector((state) => state.information.techs);
     const selectedSocialMedia = useSelector((state) => state.information.socialMedia);
+    const selectedCountry = useSelector((state) => state.information.country);
+    const selectedJob = useSelector((state) => state.information.job);
 
     const elementsDiv = `
-<h2>Hi! I'm ${name}</h2>
-<div align="left">
- <img src="https://visitor-badge.laobi.icu/badge?page_id=${githubUsername}.${githubUsername}&" />
+<div style="font-family: Arial, sans-serif; color: #333;">
+<h2 style="font-size: 24px; color: #1F2937;">Hello everyone, I'm ${name}</h2>
+<h4>I'm from ${selectedCountry} and I'm a ${selectedJob} </h4>
+<div style="margin-bottom: 20px;">
+<img src="https://visitor-badge.laobi.icu/badge?page_id=${githubUsername}.${githubUsername}&" alt="Visitor Badge" style="border-radius: 8px;" />
 </div>
-<div>
-<h3 align="left">Techs</h3>
-<div align="left">
+<section style="margin-bottom: 20px;">
+<h3 style="font-size: 20px; color: #1F2937;">Technologies</h3>
+<div align="left" style="display: flex; flex-wrap: wrap;">
 ${selectedTechs.map(tech => `
-<img src="${tech.providers[tech.provider].path}" alt="${tech.name} logo" height="40"/>
-<img width="12"/>
+<img src="${tech.providers[tech.provider].path}" alt="${tech.name} logo" height="40" style="border-radius: 5px;" />
+<img width="12">
 `).join('')}
 </div>
-</div>
-<div>
-<h3 align="left">Social Media</h3>
+</section>
+<section style="margin-bottom: 20px;">
+<h3 style="font-size: 20px; color: #1F2937;">Social Media</h3>
+<div style="display: flex; flex-wrap: wrap;">
 ${selectedSocialMedia.map(socialmedia => `
-<a href="${socialmedia.link}" target='__blank'><img src="https://raw.githubusercontent.com/poyrazavsever/readme-maker/9f115e8a71eadd6caeab48174a2e91b08a11ba03/public/SocialMedia/${socialmedia.platform}/default.svg" alt="${socialmedia.platform} logo" height="40" width="52"/></a>
-<img width="12"/>`).join('')}
-</div>
-<div>
-<h3 align="left">Stats</h3>
-<div align="left">
-
-<img src="https://github-readme-stats.vercel.app/api?username=${githubUsername}&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="stats graph"  />
-<img src="https://github-readme-stats.vercel.app/api/top-langs?username=${githubUsername}&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="languages graph"  />
-<img src="https://streak-stats.demolab.com?user=${githubUsername}&locale=en&mode=daily&theme=dracula&hide_border=false&border_radius=5&order=3" height="150" alt="streak graph"  />
-<img src="https://github-profile-trophy.vercel.app?username=${githubUsername}&theme=dracula&column=-1&row=1&margin-w=8&margin-h=8&no-bg=false&no-frame=false&order=4" height="200" alt="trophy graph"  />
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=${githubUsername}&radius=16&theme=react&area=true&order=5" height="300" alt="activity-graph graph"  />
-</div>
+<a href="${socialmedia.link}" target="_blank" style="margin-right: 15px;">
+<img src="https://raw.githubusercontent.com/poyrazavsever/readme-maker/9f115e8a71eadd6caeab48174a2e91b08a11ba03/public/SocialMedia/${socialmedia.platform}/default.svg" alt="${socialmedia.platform} logo" height="40" width="40" style="border-radius: 5px;" /></a><img width="12">`).join('')}</div>
+</section>
 </div>
 `;
+
 
     const copyToClipboard = () => {
         const codeElement = document.getElementById('code-block');

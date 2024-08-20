@@ -24,13 +24,16 @@ function Preview() {
 
             </div>
 
-            {id == 1 &&
-                <Preview1 />
-            }
+            <div className='mt-6 h-full'>
+                {id == 1 &&
+                    <Preview1 />
+                }
 
-            {id == 2 &&
-                <Preview2 />
-            }
+                {id == 2 &&
+                    <Preview2 />
+                }
+            </div>
+
 
         </div>
     )
