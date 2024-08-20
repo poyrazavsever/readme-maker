@@ -25,7 +25,7 @@ function NameAdded({setCurrentStep}) {
         <div className="w-64 flex flex-col items-start gap-4">
 
             <div className="flex flex-col items-start gap-3 w-full">
-                <label htmlFor="yourName" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Text</label>
+                <label htmlFor="yourName" className="text-sm uppercase font-semibold tracking-wider text-slate-200">Your Name</label>
                 <input
                     type="text"
                     id="yourName"
