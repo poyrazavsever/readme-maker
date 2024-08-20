@@ -60,7 +60,7 @@ ${selectedSocialMedia.map(socialmedia => `
                 <button onClick={copyToClipboard}><FaRegCopy className='text-slate-800 text-lg'/></button>
             </div>
 
-            <pre className="max-h-96 overflow-y-auto whitespace-pre-wrap break-words p-2 bg-gray-800 text-gray-200 rounded-md" id='code-block'>
+            <pre className="max-h-96 overflow-y-auto scrollbar scrollbar-track-slate-900 scrollbar-thumb-slate-400 whitespace-pre-wrap break-words p-2 bg-gray-800 text-gray-200 rounded-md" id='code-block'>
                 {elementsDiv}
             </pre>
         </div>
