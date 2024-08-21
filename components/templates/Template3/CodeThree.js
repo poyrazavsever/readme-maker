@@ -39,7 +39,7 @@ ${selectedTechs.map(tech => `
 <div style="display: flex; flex-wrap: wrap;">
 ${selectedSocialMedia.map(socialmedia => `
 <a href="${socialmedia.link}" target="_blank" style="margin-right: 15px;">
-<img src="https://raw.githubusercontent.com/poyrazavsever/readme-maker/9f115e8a71eadd6caeab48174a2e91b08a11ba03/public/SocialMedia/${socialmedia.platform}/default.svg" alt="${socialmedia.platform} logo" height="40" width="40" style="border-radius: 5px;" /></a>
+<img src="https://raw.githubusercontent.com/poyrazavsever/readme-maker/9df1365415ce0dae1e96f4b3318664c18cd60241/public/SocialMedia/${socialmedia.platform}/default.svg" alt="${socialmedia.platform} logo" height="40" width="40" style="border-radius: 5px;" /></a>
 `).join('')}
 </div>
 </section>
