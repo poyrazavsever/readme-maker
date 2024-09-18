@@ -29,9 +29,9 @@ const TemplateSelector = () => {
   const btnStyle = 'flex items-center justify-center gap-3 text-zinc-50 w-1/2 py-4 px-2 transition-all uppercase font-semibold tracking-wide text-xs md:text-base';
 
   return (
-    <div className='flex flex-col items-start gap-12'>
+    <div className='relative flex flex-col items-start gap-12'>
 
-      <div className='flex flex-col items-start gap-6'>
+      <div className='flex flex-col items-start gap-6 z-20'>
 
         <div className='flex flex-col items-start gap-3'>
           <div className='flex items-end gap-8'>
@@ -49,7 +49,7 @@ const TemplateSelector = () => {
 
       </div>
 
-      <div className='flex flex-wrap gap-8'>
+      <div className='flex flex-wrap gap-8 z-20'>
         {templates.map((template) => (
 
           <div className='relative w-48 md:w-40 lg:w-64 shadow border border-emerald-400 overflow-hidden' key={template.id}>
@@ -94,6 +94,8 @@ const TemplateSelector = () => {
 
         ))}
       </div>
+
+      <div className='absolute right-1/2 w-64 h-64 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-full blur-3xl opacity-20'/>
 
     </div>
   );
