@@ -2,8 +2,6 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { selectTemplate } from '../redux/slice/templateSlice';
 
-// Icons
-import { FaEye } from "react-icons/fa";
 
 
 const TemplateSelector = () => {
@@ -26,10 +24,12 @@ const TemplateSelector = () => {
 
   const categories = [
     "Code Mode",
-    "Minimalistic", 
-    "Badges", 
+    "Minimalistic",
+    "Badges",
     "Retro",
   ]
+
+  const btnStyle = 'flex items-center justify-center gap-3 text-zinc-50 w-1/2 py-4 px-2 transition-all uppercase font-semibold tracking-wide text-xs md:text-base'
 
 
   return (
@@ -63,21 +63,24 @@ const TemplateSelector = () => {
       <div className='flex flex-wrap gap-8'>
         {templates.map((template) => (
 
-          <div className='group w-32 md:w-40 lg:w-48 shadow shadow-slate-900' key={template.id}>
+          <div className='group w-48 md:w-40 lg:w-64 shadow border border-emerald-400' key={template.id}>
 
-            <button
-              onClick={() => handleSelect(template.id)}
-              className='w-full h-32 md:h-40 lg:h-48 flex items-center justify-center rounded-t-md bg-slate-900 transition-all border border-slate-800 hover:border-slate-700 hover:bg-slate-700'
-            >
+            <div>
+              <img src={`/templateImage/${template.image}`} alt={`Banner for ${template.id}`} className='w-full h-full transition-all hover:scale-105'/>
+            </div>
 
-              <h3 className='text-5xl font-black tracking-wide text-zinc-200'>{template.templateName}</h3>
 
-            </button>
+            <div className='flex items-center justify-between w-full'>
+              <a href={`/preview/${template.id}`} className={`${btnStyle} bg-gradient-to-b from-emerald-400 to-emerald-700`}>
+                Preview
+              </a>
 
-            <a href={`/preview/${template.id}`} className='flex items-center justify-center gap-2 text-zinc-200 w-full py-4 border border-slate-800 bg-slate-800 rounded-b-md hover:bg-green-800 transition-all'>
-              <FaEye />
-              <span className='uppercase font-semibold tracking-wide text-xs md:text-base'>Preview</span>
-            </a>
+              <button
+                onClick={() => handleSelect(template.id)}
+                className={`${btnStyle} bg-gradient-to-b from-cyan-400 to-cyan-700`}>
+                Select
+              </button>
+            </div>
 
           </div>
 
