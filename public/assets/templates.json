@@ -2,22 +2,26 @@
     {
       "id": "1",
       "templateName": "1",
-      "category": "normal"
+      "category": "Minimalistic",
+      "image" : "Template1.JPG"
     },
     {
       "id": "2",
       "templateName": "2",
-      "category": "normal"
+      "category": "Minimalistic",
+      "image" : "Template2.JPG"
     },
     {
       "id": "3",
       "templateName": "3",
-      "category": "normal"
+      "category": "Minimalistic",
+      "image" : "Template3.JPG"
     },
     {
       "id": "4",
       "templateName": "4",
-      "category": "normal"
+      "category": "Minimalistic",
+      "image" : "Template4.JPG"
     }
   ]
   
