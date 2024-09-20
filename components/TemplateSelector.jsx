@@ -6,7 +6,10 @@ import { motion } from 'framer-motion';
 const TemplateSelector = () => {
 
   const dispatch = useDispatch();
+
+  // templates ve aktif kategori için state tanımlamaları
   const [templates, setTemplates] = useState([]);
+  const [activeCategory, setActiveCategory] = useState(''); // Aktif kategori tutulacak
 
   useEffect(() => {
     fetch('/assets/templates.json')
@@ -20,11 +23,17 @@ const TemplateSelector = () => {
   };
 
   const categories = [
+    "All", // Tüm şablonları göstermek için bir 'All' seçeneği ekliyoruz.
     "Code Mode",
     "Minimalistic",
     "Badges",
     "Retro",
   ];
+
+  // Aktif kategoriye göre template'leri filtrele
+  const filteredTemplates = activeCategory === "All" || activeCategory === ""
+    ? templates
+    : templates.filter(template => template.category === activeCategory);
 
   const btnStyle = 'flex items-center justify-center gap-3 text-zinc-50 w-1/2 py-4 px-2 transition-all uppercase font-semibold tracking-wide text-xs md:text-base';
 
@@ -41,20 +50,29 @@ const TemplateSelector = () => {
           <p className='text-base md:text-lg lg:text-2xl text-neutral-100 font-medium'>Choose a template for your profile readme file.</p>
         </div>
 
+        {/* Kategoriler */}
         <div className='flex items-center gap-4'>
           {categories.map((category) => (
-            <button key={category} className='py-2 px-6 text-lg font-semibold bg-gradient-to-b from-emerald-600 to-emerald-900 rounded-full bg-opacity-30 border border-emerald-400 text-emerald-50'>{category}</button>
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)} // Kategori seçildiğinde state güncellenir
+              className={`py-2 px-6 text-lg font-semibold rounded-full bg-opacity-30 border  text-emerald-50 transition-all ${
+                activeCategory === category
+                  ? 'bg-gradient-to-b from-cyan-600 to-cyan-900 border-cyan-400' // Aktif kategori stili
+                  : 'bg-gradient-to-b from-emerald-500 to-emerald-700 border-emerald-400'
+              }`}
+            >
+              {category}
+            </button>
           ))}
         </div>
 
       </div>
 
+      {/* Filtrelenmiş Template'ler */}
       <div className='flex flex-wrap gap-8 z-20'>
-        {templates.map((template) => (
-
+        {filteredTemplates.map((template) => (
           <div className='relative w-48 md:w-40 lg:w-64 shadow border border-emerald-400 overflow-hidden' key={template.id}>
-
-            {/* Resim Hover animasyonu */}
             <motion.div 
               whileHover={{ y: -70 }}
               className='relative w-full h-full'
@@ -65,7 +83,7 @@ const TemplateSelector = () => {
 
             <div className='flex items-center justify-between w-full absolute bottom-0'>
               
-              {/* Preview butonu hover animasyonu */}
+              {/* Preview butonu */}
               <motion.a
                 href={`/preview/${template.id}`}
                 className={`${btnStyle} bg-gradient-to-b from-emerald-400 to-emerald-700`}
@@ -77,7 +95,7 @@ const TemplateSelector = () => {
                 Preview
               </motion.a>
 
-              {/* Select butonu hover animasyonu */}
+              {/* Select butonu */}
               <motion.button
                 onClick={() => handleSelect(template.id)}
                 className={`${btnStyle} bg-gradient-to-b from-cyan-400 to-cyan-700`}
@@ -91,11 +109,11 @@ const TemplateSelector = () => {
             </div>
 
           </div>
-
         ))}
       </div>
 
-      <div className='absolute right-1/2 w-64 h-64 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-full blur-3xl opacity-20'/>
+      {/* Dekoratif arka plan */}
+      <div className='absolute right-1/2 w-64 h-64 bg-gradient-to-br from-emerald-400 to-cyan-400 rounded-full blur-3xl opacity-20' />
 
     </div>
   );
